@@ -272,50 +272,6 @@ nav ul li a {
   transform: translateY(-12px) rotate(45deg);
 }
 
-/* @media only screen and (max-width: 700px) {
-  header {
-    position: relative;
-    z-index: 999;
-  }
-  header nav img {
-    margin: 0;
-  }
-  header nav ul {
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    -webkit-justify-content: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.8);
-    position: absolute;
-    top: 80px;
-    left: 0px;
-    width: 100%;
-    z-index: 980;
-  }
-  header nav ul li {
-    padding: 10px;
-    text-align: center;
-  }
-  header nav ul li a {
-    display: block;
-    background: transparent;
-    color: var(--white);
-    margin: 0px;
-    padding: 20px;
-  }
-  header nav ul li a:hover {
-    color: #000;
-    background: #fff;
-  }
-  .nav__icon,
-  .nav__icon span {
-    display: inline-block;
-    transition: all 0.4s;
-    box-sizing: border-box;
-    z-index: 999;
-  }
-} */
-
 /* --- Hero Section --- */
 
 #accueil {
