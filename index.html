@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CinéFilm est un site web pour un cinéma fictif. Ce projet, a été réalisé dans le cadre d'un concours discord"
+    />
+    <title>CinéFilm | Accueil</title>
+    <link
+      rel="shortcut icon"
+      href="./public/assets/images/favicon-cinefilm.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link rel="stylesheet" href="./public/assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="loader">
+      <div class="img">
+        <img src="./public/assets/images/affiches/batman.webp" alt="" />
+      </div>
+      <div class="img">
+        <img src="./public/assets/images/affiches/jigsaw.webp" alt="" />
+      </div>
+      <div class="img">
+        <img src="./public/assets/images/affiches/red-face.webp" alt="" />
+      </div>
+      <div class="img">
+        <img src="./public/assets/images/affiches/harry-potter.webp" alt="" />
+      </div>
+      <div class="img">
+        <img src="./public/assets/images/affiches/avatar-moutain.webp" alt="" />
+      </div>
+      <div class="img">
+        <img src="./public/assets/images/affiches/train.webp" alt="" />
+      </div>
+      <div class="img reveal">
+        <img src="./public/assets/images/affiches/wallpapers.webp" alt="" />
+      </div>
+    </div>
+    <div class="overlay">
+      <div>
+        <img
+          src="./public/assets/images/logo-white-2.png"
+          alt="cinefilm logo"
+        />
+        <a href="#" id="enter-btn">Visiter</a>
+      </div>
+    </div>
+    <div id="back-to-top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        fill="#ececec"
+        viewBox="0 0 256 256"
+      >
+        <path
+          d="M215.39,163.06A8,8,0,0,1,208,168H48a8,8,0,0,1-5.66-13.66l80-80a8,8,0,0,1,11.32,0l80,80A8,8,0,0,1,215.39,163.06Z"
+        ></path>
+      </svg>
+    </div>
+
+    <header id="header" role="heading">
+      <nav>
+        <img
+          src="./public/assets/images/logo-dark.png"
+          alt="cinefilm logo dark"
+        />
+        <ul>
+          <li class="list-item">
+            <a href="#accueil"
+              >Accueil<svg
+                class="navbar-hover"
+                style="position: absolute; top: 25px; left: 1px"
+                width="90%"
+                height="110"
+              >
+                <path
+                  d="M 0 0 C 0 8 200 -1 125 0"
+                  fill="none"
+                  stroke="#FF725E"
+                  stroke-width="3"
+                /></svg
+            ></a>
+          </li>
+          <li class="list-item">
+            <a href="#horaires">Horaires</a>
+          </li>
+          <li class="list-item">
+            <a href="#prochainement">Prochainement</a>
+          </li>
+          <li class="list-item">
+            <a href="#billetterie">Billetterie</a>
+          </li>
+        </ul>
+        <div class="nav__icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </header>
+
+    <section id="accueil">
+      <div class="card">
+        <div class="card-header">
+          <span
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="60"
+              height="60"
+              fill="#ff7254"
+              viewBox="0 0 256 256"
+            >
+              <path
+                d="M128,16a88.1,88.1,0,0,0-88,88c0,75.3,80,132.17,83.41,134.55a8,8,0,0,0,9.18,0C136,236.17,216,179.3,216,104A88.1,88.1,0,0,0,128,16Zm0,56a32,32,0,1,1-32,32A32,32,0,0,1,128,72Z"
+              ></path></svg
+          ></span>
+          <div>
+            <h1>
+              CinéFilm,<span><br />cinéma de Bayeux</span>
+            </h1>
+            <div class="divider"></div>
+            <h2>Ouvert 7j/7 !</h2>
+          </div>
+        </div>
+        <div>
+          <img src="./public/assets/images/cinema.webp" alt="" />
+        </div>
+      </div>
+
+      <div class="pictures">
+        <img src="./public/assets/images/cinema-neuf.webp" alt="" />
+        <img src="./public/assets/images/salles-confort.webp" alt="" />
+      </div>
+      <img src="./public/assets/images/thumb-2.png" alt="" id="thumb" />
+    </section>
+
+    <!-- Scrolling text -->
+    <div class="container-fluid">
+      <div class="bandeau" id="horaires">
+        <div class="txt t1">
+          Le Programme - <b>Le Programme</b> - Le Programme -
+          <b>Le Programme</b> - Le Programme - <b>Le Programme</b> - Le
+          Programme -
+        </div>
+        <div class="txt t2">
+          <b>Le Programme</b> - Le Programme - <b>Le Programme</b> - Le
+          Programme - <b>Le Programme</b> - Le Programme -
+          <b>Le Programme</b>
+        </div>
+      </div>
+    </div>
+
+    <!-- --- En salle --- -->
+    <section id="programme">
+      <div class="left">
+        <div id="in-theatres">
+          <h2>Actuellement en salle</h2>
+          <div class="separator"></div>
+          <div class="list-films">
+            <div class="card-film">
+              <img
+                src="./public/assets/images/films/01-en-salle/elementaire.webp"
+                alt="image film"
+                loading="lazy"
+                loading="lazy"
+              />
+              <div class="description-film">
+                <div class="header-film">
+                  <div>
+                    <span class="badge-new">nouveau</span>
+                    <h3>Élémentaire</h3>
+                    <h4>Animation, famille (1h49)</h4>
+                  </div>
+                  <select name="select" class="select-option">
+                    <option value="">Aujourd'hui</option>
+                    <option value="today">Aujourd'hui</option>
+                    <option value="tomorrow">Demain</option>
+                  </select>
+                </div>
+                <div class="horaires">
+                  <div class="card-horaire">
+                    <p>
+                      17:00
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="#ff7254"
+                        viewBox="0 0 256 256"
+                      >
+                        <path
+                          d="M255.14,187.54a12,12,0,0,0-15.6-6.68l-9.75,3.9-27.06-54.13A12,12,0,0,0,192,124H116V108h52a12,12,0,0,0,0-24H116V81.94a36,36,0,1,0-24,0v4.75a76,76,0,1,0,92.21,97.06,12,12,0,1,0-22.8-7.5A52,52,0,1,1,92,112v24a12,12,0,0,0,12,12h80.58l28.68,57.37a12,12,0,0,0,15.19,5.77l20-8A12,12,0,0,0,255.14,187.54ZM104,36A12,12,0,1,1,92,48,12,12,0,0,1,104,36Z"
+                        ></path>
+                      </svg>
+                    </p>
+                    <p>VF</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-film">
+              <img
+                src="./public/assets/images/films/01-en-salle/asteroid_city.webp"
+                alt="image film"
+                loading="lazy"
+              />
+              <div class="description-film">
+                <div class="header-film">
+                  <div>
+                    <span class="badge-new">nouveau</span>
+                    <h3>Astéroid City</h3>
+                    <h4>Comédie dramatique (1h44)</h4>
+                  </div>
+                  <select name="select" class="select-option">
+                    <option value="">Aujourd'hui</option>
+                    <option value="today">Aujourd'hui</option>
+                    <option value="tomorrow">Demain</option>
+                  </select>
+                </div>
+                <div class="horaires">
+                  <div class="card-horaire">
+                    <p>
+                      17:00
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="#ff7254"
+                        viewBox="0 0 256 256"
+                      >
+                        <path
+                          d="M255.14,187.54a12,12,0,0,0-15.6-6.68l-9.75,3.9-27.06-54.13A12,12,0,0,0,192,124H116V108h52a12,12,0,0,0,0-24H116V81.94a36,36,0,1,0-24,0v4.75a76,76,0,1,0,92.21,97.06,12,12,0,1,0-22.8-7.5A52,52,0,1,1,92,112v24a12,12,0,0,0,12,12h80.58l28.68,57.37a12,12,0,0,0,15.19,5.77l20-8A12,12,0,0,0,255.14,187.54ZM104,36A12,12,0,1,1,92,48,12,12,0,0,1,104,36Z"
+                        ></path>
+                      </svg>
+                    </p>
+                    <p>VF</p>
+                  </div>
+                  <div class="card-horaire">
+                    <p>
+                      17:00
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="#ff7254"
+                        viewBox="0 0 256 256"
+                      >
+                        <path
+                          d="M255.14,187.54a12,12,0,0,0-15.6-6.68l-9.75,3.9-27.06-54.13A12,12,0,0,0,192,124H116V108h52a12,12,0,0,0,0-24H116V81.94a36,36,0,1,0-24,0v4.75a76,76,0,1,0,92.21,97.06,12,12,0,1,0-22.8-7.5A52,52,0,1,1,92,112v24a12,12,0,0,0,12,12h80.58l28.68,57.37a12,12,0,0,0,15.19,5.77l20-8A12,12,0,0,0,255.14,187.54ZM104,36A12,12,0,1,1,92,48,12,12,0,0,1,104,36Z"
+                        ></path>
+                      </svg>
+                    </p>
+                    <p>VF</p>
+                  </div>
+                  <div class="card-horaire">
+                    <p>
+                      17:00
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="#ff7254"
+                        viewBox="0 0 256 256"
+                      >
+                        <path
+                          d="M255.14,187.54a12,12,0,0,0-15.6-6.68l-9.75,3.9-27.06-54.13A12,12,0,0,0,192,124H116V108h52a12,12,0,0,0,0-24H116V81.94a36,36,0,1,0-24,0v4.75a76,76,0,1,0,92.21,97.06,12,12,0,1,0-22.8-7.5A52,52,0,1,1,92,112v24a12,12,0,0,0,12,12h80.58l28.68,57.37a12,12,0,0,0,15.19,5.77l20-8A12,12,0,0,0,255.14,187.54ZM104,36A12,12,0,1,1,92,48,12,12,0,0,1,104,36Z"
+                        ></path>
+                      </svg>
+                    </p>
+                    <p>VF</p>
+                  </div>
+                  <div class="card-horaire">
+                    <p>
+                      17:00
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="#ff7254"
+                        viewBox="0 0 256 256"
+                      >
+                        <path
+                          d="M255.14,187.54a12,12,0,0,0-15.6-6.68l-9.75,3.9-27.06-54.13A12,12,0,0,0,192,124H116V108h52a12,12,0,0,0,0-24H116V81.94a36,36,0,1,0-24,0v4.75a76,76,0,1,0,92.21,97.06,12,12,0,1,0-22.8-7.5A52,52,0,1,1,92,112v24a12,12,0,0,0,12,12h80.58l28.68,57.37a12,12,0,0,0,15.19,5.77l20-8A12,12,0,0,0,255.14,187.54ZM104,36A12,12,0,1,1,92,48,12,12,0,0,1,104,36Z"
+                        ></path>
+                      </svg>
+                    </p>
+                    <p>VF</p>
+                  </div>
+                  <div class="card-horaire">
+                    <p>
+                      17:00
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="#ff7254"
+                        viewBox="0 0 256 256"
+                      >
+                        <path
+                          d="M255.14,187.54a12,12,0,0,0-15.6-6.68l-9.75,3.9-27.06-54.13A12,12,0,0,0,192,124H116V108h52a12,12,0,0,0,0-24H116V81.94a36,36,0,1,0-24,0v4.75a76,76,0,1,0,92.21,97.06,12,12,0,1,0-22.8-7.5A52,52,0,1,1,92,112v24a12,12,0,0,0,12,12h80.58l28.68,57.37a12,12,0,0,0,15.19,5.77l20-8A12,12,0,0,0,255.14,187.54ZM104,36A12,12,0,1,1,92,48,12,12,0,0,1,104,36Z"
+                        ></path>
+                      </svg>
+                    </p>
+                    <p>VF</p>
+                  </div>
+                  <div class="card-horaire">
+                    <p>
+                      21:00
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="#ff7254"
+                        viewBox="0 0 256 256"
+                      >
+                        <path
+                          d="M255.14,187.54a12,12,0,0,0-15.6-6.68l-9.75,3.9-27.06-54.13A12,12,0,0,0,192,124H116V108h52a12,12,0,0,0,0-24H116V81.94a36,36,0,1,0-24,0v4.75a76,76,0,1,0,92.21,97.06,12,12,0,1,0-22.8-7.5A52,52,0,1,1,92,112v24a12,12,0,0,0,12,12h80.58l28.68,57.37a12,12,0,0,0,15.19,5.77l20-8A12,12,0,0,0,255.14,187.54ZM104,36A12,12,0,1,1,92,48,12,12,0,0,1,104,36Z"
+                        ></path>
+                      </svg>
+                    </p>
+                    <p>VOST</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-film">
+              <img
+                src="./public/assets/images/films/01-en-salle/indiana_jones_et_le_cadran_de_la_destinee.webp"
+                alt="image film"
+                loading="lazy"
+              />
+              <div class="description-film">
+                <div class="header-film">
+                  <div>
+                    <span class="badge-new">nouveau</span>
+                    <h3>Indiana Jones et le...</h3>
+                    <h4>Action (2h34)</h4>
+                  </div>
+                  <select name="select" class="select-option">
+                    <option value="">Aujourd'hui</option>
+                    <option value="today">Aujourd'hui</option>
+                    <option value="tomorrow">Demain</option>
+                  </select>
+                </div>
+                <div class="horaires">
+                  <div class="card-horaire">
+                    <p>
+                      17:00
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="#ff7254"
+                        viewBox="0 0 256 256"
+                      >
+                        <path
+                          d="M255.14,187.54a12,12,0,0,0-15.6-6.68l-9.75,3.9-27.06-54.13A12,12,0,0,0,192,124H116V108h52a12,12,0,0,0,0-24H116V81.94a36,36,0,1,0-24,0v4.75a76,76,0,1,0,92.21,97.06,12,12,0,1,0-22.8-7.5A52,52,0,1,1,92,112v24a12,12,0,0,0,12,12h80.58l28.68,57.37a12,12,0,0,0,15.19,5.77l20-8A12,12,0,0,0,255.14,187.54ZM104,36A12,12,0,1,1,92,48,12,12,0,0,1,104,36Z"
+                        ></path>
+                      </svg>
+                    </p>
+                    <p>VF</p>
+                  </div>
+                  <div class="card-horaire">
+                    <p>
+                      21:00
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="#ff7254"
+                        viewBox="0 0 256 256"
+                      >
+                        <path
+                          d="M255.14,187.54a12,12,0,0,0-15.6-6.68l-9.75,3.9-27.06-54.13A12,12,0,0,0,192,124H116V108h52a12,12,0,0,0,0-24H116V81.94a36,36,0,1,0-24,0v4.75a76,76,0,1,0,92.21,97.06,12,12,0,1,0-22.8-7.5A52,52,0,1,1,92,112v24a12,12,0,0,0,12,12h80.58l28.68,57.37a12,12,0,0,0,15.19,5.77l20-8A12,12,0,0,0,255.14,187.54ZM104,36A12,12,0,1,1,92,48,12,12,0,0,1,104,36Z"
+                        ></path>
+                      </svg>
+                    </p>
+                    <p>VOST</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-film">
+              <img
+                src="./public/assets/images/films/01-en-salle/spider_man_across_the_spider_verse.webp"
+                alt="image film"
+                loading="lazy"
+              />
+              <div class="description-film">
+                <div class="header-film">
+                  <div>
+                    <span class="badge-new">nouveau</span>
+                    <h3>Spider-Man: Across t..</h3>
+                    <h4>Action, famille (2h20)</h4>
+                  </div>
+                  <select name="select" class="select-option">
+                    <option value="">Aujourd'hui</option>
+                    <option value="today">Aujourd'hui</option>
+                    <option value="tomorrow">Demain</option>
+                  </select>
+                </div>
+                <div class="horaires">
+                  <div class="card-horaire">
+                    <p>
+                      17:00
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="#ff7254"
+                        viewBox="0 0 256 256"
+                      >
+                        <path
+                          d="M255.14,187.54a12,12,0,0,0-15.6-6.68l-9.75,3.9-27.06-54.13A12,12,0,0,0,192,124H116V108h52a12,12,0,0,0,0-24H116V81.94a36,36,0,1,0-24,0v4.75a76,76,0,1,0,92.21,97.06,12,12,0,1,0-22.8-7.5A52,52,0,1,1,92,112v24a12,12,0,0,0,12,12h80.58l28.68,57.37a12,12,0,0,0,15.19,5.77l20-8A12,12,0,0,0,255.14,187.54ZM104,36A12,12,0,1,1,92,48,12,12,0,0,1,104,36Z"
+                        ></path>
+                      </svg>
+                    </p>
+                    <p>VF</p>
+                  </div>
+                  <div class="card-horaire">
+                    <p>
+                      21:00
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="#ff7254"
+                        viewBox="0 0 256 256"
+                      >
+                        <path
+                          d="M255.14,187.54a12,12,0,0,0-15.6-6.68l-9.75,3.9-27.06-54.13A12,12,0,0,0,192,124H116V108h52a12,12,0,0,0,0-24H116V81.94a36,36,0,1,0-24,0v4.75a76,76,0,1,0,92.21,97.06,12,12,0,1,0-22.8-7.5A52,52,0,1,1,92,112v24a12,12,0,0,0,12,12h80.58l28.68,57.37a12,12,0,0,0,15.19,5.77l20-8A12,12,0,0,0,255.14,187.54ZM104,36A12,12,0,1,1,92,48,12,12,0,0,1,104,36Z"
+                        ></path>
+                      </svg>
+                    </p>
+                    <p>VOST</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-film">
+              <img
+                src="./public/assets/images/films/01-en-salle/the_flash.webp"
+                alt="image film"
+                loading="lazy"
+              />
+              <div class="description-film">
+                <div class="header-film">
+                  <div>
+                    <span class="badge-new">nouveau</span>
+                    <h3>The Flash</h3>
+                    <h4>Action (2h24)</h4>
+                  </div>
+                  <select name="select" class="select-option">
+                    <option value="">Aujourd'hui</option>
+                    <option value="today">Aujourd'hui</option>
+                    <option value="tomorrow">Demain</option>
+                  </select>
+                </div>
+                <div class="horaires">
+                  <div class="card-horaire">
+                    <p>
+                      17:00
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="#ff7254"
+                        viewBox="0 0 256 256"
+                      >
+                        <path
+                          d="M255.14,187.54a12,12,0,0,0-15.6-6.68l-9.75,3.9-27.06-54.13A12,12,0,0,0,192,124H116V108h52a12,12,0,0,0,0-24H116V81.94a36,36,0,1,0-24,0v4.75a76,76,0,1,0,92.21,97.06,12,12,0,1,0-22.8-7.5A52,52,0,1,1,92,112v24a12,12,0,0,0,12,12h80.58l28.68,57.37a12,12,0,0,0,15.19,5.77l20-8A12,12,0,0,0,255.14,187.54ZM104,36A12,12,0,1,1,92,48,12,12,0,0,1,104,36Z"
+                        ></path>
+                      </svg>
+                    </p>
+                    <p>VF</p>
+                  </div>
+                  <div class="card-horaire">
+                    <p>
+                      21:00
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="#ff7254"
+                        viewBox="0 0 256 256"
+                      >
+                        <path
+                          d="M255.14,187.54a12,12,0,0,0-15.6-6.68l-9.75,3.9-27.06-54.13A12,12,0,0,0,192,124H116V108h52a12,12,0,0,0,0-24H116V81.94a36,36,0,1,0-24,0v4.75a76,76,0,1,0,92.21,97.06,12,12,0,1,0-22.8-7.5A52,52,0,1,1,92,112v24a12,12,0,0,0,12,12h80.58l28.68,57.37a12,12,0,0,0,15.19,5.77l20-8A12,12,0,0,0,255.14,187.54ZM104,36A12,12,0,1,1,92,48,12,12,0,0,1,104,36Z"
+                        ></path>
+                      </svg>
+                    </p>
+                    <p>VOST</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- --- Prochainement --- -->
+        <div id="prochainement">
+          <h2>À retrouver prochainement</h2>
+          <div class="separator"></div>
+          <div class="list-films">
+            <div class="card-film">
+              <img
+                src="./public/assets/images/films/flightclub.jpg"
+                alt="image film"
+                loading="lazy"
+              />
+              <div class="description-film">
+                <div class="header-film">
+                  <div>
+                    <span class="badge-new">nouveau</span
+                    ><span class="badge-warning">-12</span>
+                    <h3>Titre du Film</h3>
+                    <h4>Comédie, famille (1h21)</h4>
+                  </div>
+                  <select name="select" class="select-option">
+                    <option value="">Aujourd'hui</option>
+                    <option value="today">Aujourd'hui</option>
+                    <option value="tomorrow">Demain</option>
+                  </select>
+                </div>
+                <div class="horaires">
+                  <div class="card-horaire">
+                    <p>
+                      17:00
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="#ff7254"
+                        viewBox="0 0 256 256"
+                      >
+                        <path
+                          d="M255.14,187.54a12,12,0,0,0-15.6-6.68l-9.75,3.9-27.06-54.13A12,12,0,0,0,192,124H116V108h52a12,12,0,0,0,0-24H116V81.94a36,36,0,1,0-24,0v4.75a76,76,0,1,0,92.21,97.06,12,12,0,1,0-22.8-7.5A52,52,0,1,1,92,112v24a12,12,0,0,0,12,12h80.58l28.68,57.37a12,12,0,0,0,15.19,5.77l20-8A12,12,0,0,0,255.14,187.54ZM104,36A12,12,0,1,1,92,48,12,12,0,0,1,104,36Z"
+                        ></path>
+                      </svg>
+                    </p>
+                    <p>VF</p>
+                  </div>
+                  <div class="card-horaire">
+                    <p>
+                      21:00
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="#ff7254"
+                        viewBox="0 0 256 256"
+                      >
+                        <path
+                          d="M255.14,187.54a12,12,0,0,0-15.6-6.68l-9.75,3.9-27.06-54.13A12,12,0,0,0,192,124H116V108h52a12,12,0,0,0,0-24H116V81.94a36,36,0,1,0-24,0v4.75a76,76,0,1,0,92.21,97.06,12,12,0,1,0-22.8-7.5A52,52,0,1,1,92,112v24a12,12,0,0,0,12,12h80.58l28.68,57.37a12,12,0,0,0,15.19,5.77l20-8A12,12,0,0,0,255.14,187.54ZM104,36A12,12,0,1,1,92,48,12,12,0,0,1,104,36Z"
+                        ></path>
+                      </svg>
+                    </p>
+                    <p>VOST</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- --- Avant premiere --- -->
+        <div id="pre-release">
+          <h2>En avant-première</h2>
+          <div class="separator"></div>
+          <div class="list-films">
+            <div class="card-film">
+              <img
+                src="./public/assets/images/films/flightclub.jpg"
+                alt="image film"
+                loading="lazy"
+              />
+              <div class="description-film">
+                <div class="header-film">
+                  <div>
+                    <span class="badge-new">nouveau</span
+                    ><span class="badge-warning">-12</span>
+                    <h3>Titre du Film</h3>
+                    <h4>Comédie, famille (1h21)</h4>
+                  </div>
+                  <select name="select" class="select-option">
+                    <option value="">Aujourd'hui</option>
+                    <option value="today">Aujourd'hui</option>
+                    <option value="tomorrow">Demain</option>
+                  </select>
+                </div>
+                <div class="horaires">
+                  <div class="card-horaire">
+                    <p>
+                      17:00
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="#ff7254"
+                        viewBox="0 0 256 256"
+                      >
+                        <path
+                          d="M255.14,187.54a12,12,0,0,0-15.6-6.68l-9.75,3.9-27.06-54.13A12,12,0,0,0,192,124H116V108h52a12,12,0,0,0,0-24H116V81.94a36,36,0,1,0-24,0v4.75a76,76,0,1,0,92.21,97.06,12,12,0,1,0-22.8-7.5A52,52,0,1,1,92,112v24a12,12,0,0,0,12,12h80.58l28.68,57.37a12,12,0,0,0,15.19,5.77l20-8A12,12,0,0,0,255.14,187.54ZM104,36A12,12,0,1,1,92,48,12,12,0,0,1,104,36Z"
+                        ></path>
+                      </svg>
+                    </p>
+                    <p>VF</p>
+                  </div>
+                  <div class="card-horaire">
+                    <p>
+                      21:00
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="#ff7254"
+                        viewBox="0 0 256 256"
+                      >
+                        <path
+                          d="M255.14,187.54a12,12,0,0,0-15.6-6.68l-9.75,3.9-27.06-54.13A12,12,0,0,0,192,124H116V108h52a12,12,0,0,0,0-24H116V81.94a36,36,0,1,0-24,0v4.75a76,76,0,1,0,92.21,97.06,12,12,0,1,0-22.8-7.5A52,52,0,1,1,92,112v24a12,12,0,0,0,12,12h80.58l28.68,57.37a12,12,0,0,0,15.19,5.77l20-8A12,12,0,0,0,255.14,187.54ZM104,36A12,12,0,1,1,92,48,12,12,0,0,1,104,36Z"
+                        ></path>
+                      </svg>
+                    </p>
+                    <p>VOST</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right">
+        <div id="infos-pratiques">
+          <h2>Infos pratiques</h2>
+          <div class="underline"></div>
+          <div class="infos">
+            <div class="card-info">
+              <span class="icon"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="#ff7254"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M250.53,199.59l-24,8a8,8,0,0,1-9.69-4L187.05,144H104a8,8,0,0,1-8-8V106.34A56,56,0,0,0,112,216c25.91,0,50.09-18.05,56.25-42a8,8,0,1,1,15.5,4c-8.06,31.3-38.23,54-71.75,54A72,72,0,0,1,96,89.81v-19a28,28,0,1,1,16,0V88h56a8,8,0,0,1,0,16H112v24h80a8,8,0,0,1,7.15,4.42l28.9,57.8,17.42-5.81a8,8,0,0,1,5.06,15.18Z"
+                  ></path></svg
+              ></span>
+              <p>Accès PMR</p>
+            </div>
+            <div class="card-info">
+              <span class="icon"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="#ff7254"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M240,112H211.31L168,68.69A15.86,15.86,0,0,0,156.69,64H44.28A16,16,0,0,0,31,71.12L1.34,115.56A8.07,8.07,0,0,0,0,120v48a16,16,0,0,0,16,16H33a32,32,0,0,0,62,0h66a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V128A16,16,0,0,0,240,112ZM44.28,80H156.69l32,32H23ZM64,192a16,16,0,1,1,16-16A16,16,0,0,1,64,192Zm128,0a16,16,0,1,1,16-16A16,16,0,0,1,192,192Z"
+                  ></path></svg
+              ></span>
+              <p>Parking (payant)</p>
+            </div>
+            <div class="card-info">
+              <span class="icon"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="#ff7254"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M144,204a16,16,0,1,1-16-16A16,16,0,0,1,144,204ZM239.61,83.91a176,176,0,0,0-223.22,0,12,12,0,1,0,15.23,18.55,152,152,0,0,1,192.76,0,12,12,0,1,0,15.23-18.55Zm-32.16,35.73a128,128,0,0,0-158.9,0,12,12,0,0,0,14.9,18.81,104,104,0,0,1,129.1,0,12,12,0,0,0,14.9-18.81ZM175.07,155.3a80.05,80.05,0,0,0-94.14,0,12,12,0,0,0,14.14,19.4,56,56,0,0,1,65.86,0,12,12,0,1,0,14.14-19.4Z"
+                  ></path></svg
+              ></span>
+              <p>Wifi gratuit</p>
+            </div>
+            <div class="card-info">
+              <span class="icon"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="#ff7254"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M248,120v48a16,16,0,0,1-16,16h-8v16a8,8,0,0,1-16,0V184H48v16a8,8,0,0,1-16,0V184H24A16,16,0,0,1,8,168V120a16,16,0,0,1,16-16h8a16,16,0,0,1,16,16v16a8,8,0,0,0,8,8H200a8,8,0,0,0,8-8V120a16,16,0,0,1,16-16h8A16,16,0,0,1,248,120Zm-56,0a32,32,0,0,1,32-32h12a4,4,0,0,0,4-4V72a16,16,0,0,0-16-16H140a4,4,0,0,0-4,4v68h56ZM20,88H32a32,32,0,0,1,32,32v8h56V60a4,4,0,0,0-4-4H32A16,16,0,0,0,16,72V84A4,4,0,0,0,20,88Z"
+                  ></path></svg
+              ></span>
+              <p>Fauteuil Duo</p>
+            </div>
+            <div class="card-info">
+              <span class="icon"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="#ff7254"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M208,32H48A16,16,0,0,0,32,48V224a8,8,0,0,0,16,0V208h72v16a8,8,0,0,0,16,0V208h72v16a8,8,0,0,0,16,0V48A16,16,0,0,0,208,32ZM96,112H56a8,8,0,0,1,0-16H96a8,8,0,0,1,0,16Zm0-32H56a8,8,0,0,1,0-16H96a8,8,0,0,1,0,16Zm40,104a8,8,0,0,1-16,0V56a8,8,0,0,1,16,0Zm64-72H160a8,8,0,0,1,0-16h40a8,8,0,0,1,0,16Zm0-32H160a8,8,0,0,1,0-16h40a8,8,0,0,1,0,16Z"
+                  ></path></svg
+              ></span>
+              <p>Casier casque Moto</p>
+            </div>
+          </div>
+          <div class="more-infos">
+            <div class="accordion">
+              <div class="accordion-item">
+                <div class="accordion-item-header"><h3>Cinéfilm Pass</h3></div>
+                <div class="accordion-item-body">
+                  <div class="accordion-item-body-content">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Ratione deleniti suscipit vero debitis atque, totam rerum,
+                    facilis impedit, optio minima animi ullam architecto aperiam
+                    labore?
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <div class="accordion-item-header"><h3>Tarifs</h3></div>
+                <div class="accordion-item-body">
+                  <div class="accordion-item-body-content">
+                    <div class="flex">
+                      <h4>Moins de 14 ans</h4>
+                      <div class="dotted"></div>
+                      <p>4.50€</p>
+                    </div>
+                    <div class="flex">
+                      <h4>Etudiants / Scolaires</h4>
+                      <div class="dotted"></div>
+                      <p>5.50€</p>
+                    </div>
+                    <div class="flex">
+                      <h4>Tarif normal</h4>
+                      <div class="dotted"></div>
+                      <p>7.50€</p>
+                    </div>
+                    <p>
+                      Les règlements par carte bancaire sont acceptés dès 1€.
+                      Les paiements par chèque ne sont pas acceptés. Retrouvez
+                      toutes les conditions et modalités relatives à nos offres
+                      dans votre cinéma et sur cinemaspathegaumont.com
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <div class="accordion-item-header"><h3>Accès</h3></div>
+                <div class="accordion-item-body">
+                  <div class="accordion-item-body-content" id="access">
+                    <div>
+                      <h4>En voiture :</h4>
+                      <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Quibusdam labore alias optio placeat obcaecati
+                        nam!
+                      </p>
+                    </div>
+                    <div>
+                      <h4>Parking :</h4>
+                      <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Vel placeat similique itaque adipisci distinctio
+                        libero.
+                      </p>
+                    </div>
+                    <div>
+                      <h4>Transport en commun :</h4>
+                      <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores numquam hic temporibus. Aut fugiat, quasi ab quae dolore molestiae laboriosam.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="popcorn">
+      <div id="billetterie">
+        <img
+          class="image"
+          loading="lazy"
+          data-index="0"
+          data-status="inactive"
+          src="./public/assets/images/films/01-en-salle/asteroid_city.webp"
+        />
+        <img
+          class="image"
+          loading="lazy"
+          data-index="1"
+          data-status="inactive"
+          src="./public/assets/images/films/01-en-salle/elementaire.webp"
+        />
+        <img
+          class="image"
+          loading="lazy"
+          data-index="2"
+          data-status="inactive"
+          src="./public/assets/images/films/01-en-salle/farang.webp"
+        />
+        <img
+          class="image"
+          loading="lazy"
+          data-index="3"
+          data-status="inactive"
+          src="./public/assets/images/films/01-en-salle/indiana_jones_et_le_cadran_de_la_destinee.webp"
+        />
+        <img
+          class="image"
+          loading="lazy"
+          data-index="4"
+          data-status="inactive"
+          src="./public/assets/images/films/01-en-salle/le_challenge.webp"
+        />
+        <img
+          class="image"
+          loading="lazy"
+          data-index="5"
+          data-status="inactive"
+          src="./public/assets/images/films/01-en-salle/spider_man_across_the_spider_verse.webp"
+        />
+        <img
+          class="image"
+          loading="lazy"
+          data-index="6"
+          data-status="inactive"
+          src="./public/assets/images/films/01-en-salle/the_flash.webp"
+        />
+
+        <div id="bandeau-popcorn"></div>
+        <svg
+          id="popcorn-box"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 575.23 736.52"
+        >
+          <defs>
+            <style>
+              .cls-1,
+              .cls-10 {
+                fill: #fff;
+              }
+              .cls-2 {
+                fill: #263238;
+              }
+              .cls-3 {
+                opacity: 0.3;
+              }
+              .cls-4 {
+                fill: #ebebeb;
+              }
+              .cls-5 {
+                fill: #f5f5f5;
+              }
+              .cls-6,
+              .cls-8 {
+                fill: #ff725e;
+              }
+              .cls-7 {
+                fill: #fafafa;
+              }
+              .cls-8 {
+                stroke: #f5f5f5;
+                stroke-miterlimit: 10;
+                stroke-width: 5px;
+              }
+              .cls-9 {
+                fill: none;
+              }
+              .cls-10 {
+                font-size: 38px;
+                font-family: BowlbyOne-Regular, Bowlby One;
+              }
+            </style>
+          </defs>
+          <g
+            id="Popcorns_Box_"
+            data-name="Popcorns Box
+  
+          "
+          >
+            <path
+              class="cls-1"
+              d="M347.36,93.76a18.17,18.17,0,0,0,7.94-30.08,14,14,0,0,0-18-16.16,22.18,22.18,0,0,0-32.5,19.66,34.88,34.88,0,0,0-50.69,33.45,34.88,34.88,0,0,0,55,26.08c2-1.4,3.9-3,6.25-3.69,3.81-1,7.73.81,11.45,2.15,7.27,2.63,15.5,3.37,22.66.47s12.9-9.94,12.79-17.67S355,92.88,347.36,93.76Z"
+            />
+            <path
+              class="cls-2"
+              d="M347.36,93.76a10.55,10.55,0,0,1,3.53.07,14,14,0,0,1,8.43,5.42,14.89,14.89,0,0,1,3,6.72,15.79,15.79,0,0,1-1.1,8.68,21.92,21.92,0,0,1-16.33,12.74,32.52,32.52,0,0,1-12.42-.17,41.71,41.71,0,0,1-6.37-1.83,38.14,38.14,0,0,0-6.41-2,9,9,0,0,0-6.48,1.09c-2,1.17-3.85,2.81-6,4.07a36.29,36.29,0,0,1-30.47,2.92,34.35,34.35,0,0,1-13.87-9.39,36.75,36.75,0,0,1-8.25-15.27,34,34,0,0,1,.23-17.85,37.2,37.2,0,0,1,7.78-14.33,34.12,34.12,0,0,1,13-9.15,36.37,36.37,0,0,1,29.49,1.25l-.76.46a22.67,22.67,0,0,1,33.22-20l-.34,0a14.4,14.4,0,0,1,18.46,16.65l-.09-.31a18.85,18.85,0,0,1,5,14.72,17.93,17.93,0,0,1-4.88,10.57A18.26,18.26,0,0,1,349.75,93a15.51,15.51,0,0,1-2.39.8c-.07,0,.82-.29,2.31-1a18.94,18.94,0,0,0,5.75-4.31,17.62,17.62,0,0,0,4.63-10.37,18.37,18.37,0,0,0-5-14.19l-.13-.13,0-.18a14,14,0,0,0-3.64-12.24,13.88,13.88,0,0,0-13.88-3.43l-.17.06-.17-.09a21.72,21.72,0,0,0-31.76,19.27V68l-.76-.39A35.39,35.39,0,0,0,276,66.48a33,33,0,0,0-12.54,8.87,36.12,36.12,0,0,0-7.54,13.9,33,33,0,0,0-.23,17.26,35.65,35.65,0,0,0,8,14.81,33.24,33.24,0,0,0,13.41,9.12,35.38,35.38,0,0,0,29.61-2.75c2.1-1.22,3.91-2.8,6-4.07a10,10,0,0,1,7.12-1.17,39.94,39.94,0,0,1,6.56,2.1,41.51,41.51,0,0,0,6.23,1.82,31.72,31.72,0,0,0,12.1.24,21.26,21.26,0,0,0,15.9-12.2,15.24,15.24,0,0,0,1.15-8.35A14.5,14.5,0,0,0,359,99.51a14,14,0,0,0-8.12-5.46A15.64,15.64,0,0,0,347.36,93.76Z"
+            />
+            <g class="cls-3">
+              <path
+                d="M301.84,98c-1-7.46,1.08-19.21,2.7-23.06-5.57,6.38-7.9,12.69-6.59,24.26,1,8.9,7.52,16.63,15.35,18.88C308.17,113.08,302.82,105.43,301.84,98Z"
+              />
+            </g>
+            <path
+              class="cls-2"
+              d="M342.48,93.26s-.15.45-.7,1.09a7.81,7.81,0,0,1-3,2,7.94,7.94,0,0,1-5.55.07,8.53,8.53,0,0,1-5-5l.46.36a23.23,23.23,0,0,1-7.36-1.8A17.42,17.42,0,0,1,313.79,84a14.42,14.42,0,0,1-2.43-7.54,11.72,11.72,0,0,1,1-5.23,4.56,4.56,0,0,1,1.07-1.64c.23.07-1.58,2.47-1.26,6.83a14.18,14.18,0,0,0,2.49,7A17,17,0,0,0,321.79,89a23.16,23.16,0,0,0,7,1.76l.35,0,.11.32a7.67,7.67,0,0,0,4.32,4.46,7.46,7.46,0,0,0,5,.15A11,11,0,0,0,342.48,93.26Z"
+            />
+            <path
+              class="cls-2"
+              d="M314.3,119.5a7.16,7.16,0,0,1-1.58-1.33,50,50,0,0,1-3.8-4.12,39.77,39.77,0,0,1-4.63-7,31.26,31.26,0,0,1-3.09-9.78,42.3,42.3,0,0,1,1.38-18.43,35.57,35.57,0,0,1,2-5.23,6.76,6.76,0,0,1,1.05-1.78c.18.08-1.13,2.71-2.32,7.23a45.3,45.3,0,0,0-1,18,35.12,35.12,0,0,0,7.23,16.42C312.39,117.27,314.44,119.37,314.3,119.5Z"
+            />
+            <path
+              class="cls-2"
+              d="M357.93,116.86c0,.15-1.29.46-3.46.66a23.36,23.36,0,0,1-8.51-.68,14.12,14.12,0,0,1-7.18-4.7c-1.37-1.79-1.62-3.2-1.5-3.22s.68,1.18,2.1,2.71a15.36,15.36,0,0,0,6.89,4.13,29.45,29.45,0,0,0,8.17,1C356.58,116.73,357.92,116.7,357.93,116.86Z"
+            />
+            <path
+              class="cls-4"
+              d="M236.28,139.17c-4.27-12.26-22.5-8-30.44-1a22.81,22.81,0,0,0-7.53,12,17.88,17.88,0,0,0,18.92,21.61c-1.32,3.89,2,8.35,6.06,9s8.16-2,10.18-5.56a20.69,20.69,0,0,0,9.18,13.65,12,12,0,0,0,9.79,20.8c.15,5.43,4.76,10.1,10.05,11.31s10.95-.62,15.3-3.86c4.65-3.48,8.14-8.89,8.13-14.7,0-8-6.31-14.5-12.17-20a33.43,33.43,0,0,0,12.51-8.86,45,45,0,0,0,4.7-6.59c.85-1.41,1.65-2.84,2.4-4.31,4.81-9.4,7.28-21.41,1.3-30.13-2.52-3.68-6.26-6.32-10-8.8-8.46-5.65-18.73-11.11-28.35-7.79-5.28,1.82-11.61,6-14.9,10.49-2.83,3.87-4.84,8-5.16,12.8"
+            />
+            <path
+              class="cls-2"
+              d="M236.28,139.17a13.65,13.65,0,0,1,.26-2.63,22.78,22.78,0,0,1,2.69-7.14,30.32,30.32,0,0,1,3.18-4.59,29.78,29.78,0,0,1,5-4.47,37.86,37.86,0,0,1,6.66-3.88,19.84,19.84,0,0,1,8.49-1.92c6.24,0,12.68,2.76,18.84,6.5a83.34,83.34,0,0,1,9.28,6.44,24.07,24.07,0,0,1,4.13,4.35,20.83,20.83,0,0,1,2.8,5.55,26.89,26.89,0,0,1,.59,12.79,45,45,0,0,1-4.37,12.72c-2.18,4-4.47,8.16-7.79,11.69a33.77,33.77,0,0,1-12,8.28l.17-.9a66.87,66.87,0,0,1,7.65,8.16,21.47,21.47,0,0,1,4.62,10.64,17,17,0,0,1-3.15,11.43A22.87,22.87,0,0,1,274,220c-4.35,2-9.58,2.65-14.06.67s-7.86-6.15-8-11l.63.53a12.58,12.58,0,0,1-10.22-21.74l.08.84a21.26,21.26,0,0,1-9.41-14l.95.16c-2.17,3.85-6.58,6.55-11,5.74a8.28,8.28,0,0,1-5.18-3.53,6.91,6.91,0,0,1-1-6l.49.62a18.3,18.3,0,0,1-19.14-22.95,23.47,23.47,0,0,1,7.94-11.74,29.44,29.44,0,0,1,10.8-5.37,24,24,0,0,1,9.67-.78,12.62,12.62,0,0,1,6.54,2.83l1,.95c.28.33.48.68.7,1l.59.85.34.77c.39.93.56,1.41.56,1.41s-.26-.45-.69-1.34c-.11-.23-.23-.48-.37-.75l-.6-.81c-.23-.29-.44-.63-.72-.94l-1-.9a12.55,12.55,0,0,0-6.42-2.64,23.74,23.74,0,0,0-9.47.89A29.2,29.2,0,0,0,206.49,138a22.78,22.78,0,0,0-7.63,11.43,17.48,17.48,0,0,0,18.33,21.81l.71-.06-.23.68c-1.17,3.46,1.75,7.59,5.47,8.28s7.91-1.73,9.88-5.27l.7-1.25.25,1.41a20.22,20.22,0,0,0,9,13.29l.59.37-.52.47a11.5,11.5,0,0,0,9.35,19.86L253,209l0,.62c.14,4.32,3.32,8.26,7.37,10s9,1.28,13.14-.65a21.87,21.87,0,0,0,8.82-7.41,15.89,15.89,0,0,0,3-10.68,20.34,20.34,0,0,0-4.4-10.08,64.35,64.35,0,0,0-7.51-8l-.62-.59.79-.31a32.91,32.91,0,0,0,11.66-8c3.22-3.4,5.5-7.47,7.66-11.44A44.23,44.23,0,0,0,297.18,150a26,26,0,0,0-.51-12.34,20.33,20.33,0,0,0-6.61-9.51,80.88,80.88,0,0,0-9.14-6.4c-6.08-3.75-12.39-6.52-18.41-6.52a19.07,19.07,0,0,0-8.24,1.8,37,37,0,0,0-6.59,3.75,26.23,26.23,0,0,0-8.12,8.8,23.84,23.84,0,0,0-2.84,7c-.17.84-.27,1.49-.33,1.93A3.44,3.44,0,0,1,236.28,139.17Z"
+            />
+            <path
+              class="cls-2"
+              d="M270.05,173.85s-.07.19-.29.49a5.13,5.13,0,0,1-1.2,1.09,9.62,9.62,0,0,1-5.78,1.34,17.43,17.43,0,0,1-8.49-2.63c-2.85-1.8-5.44-5.45-4.86-9.67l.73.61a9.92,9.92,0,0,1-2.29.5,19.28,19.28,0,0,1-6.13-.55,10.19,10.19,0,0,1-5.25-2.45,10.4,10.4,0,0,1-2.52-9.2,19.41,19.41,0,0,1,2.33-6,7.67,7.67,0,0,1,1.32-1.95,12.64,12.64,0,0,1-.94,2.15,21.8,21.8,0,0,0-1.92,5.95,9.67,9.67,0,0,0,2.45,8.33A9.24,9.24,0,0,0,242,164a18.58,18.58,0,0,0,5.77.5,8.88,8.88,0,0,0,2.05-.44l.87-.29-.14.91c-.51,3.61,1.72,7,4.32,8.66a17.37,17.37,0,0,0,8,2.71,9.76,9.76,0,0,0,5.52-.94C269.52,174.43,270,173.77,270.05,173.85Z"
+            />
+            <path
+              class="cls-2"
+              d="M257.31,182.84c0,.17-1-.05-2.62,0a14.11,14.11,0,0,0-5.84,1.75,27.81,27.81,0,0,0-5,3.69c-1.22,1.07-2,1.75-2.11,1.64s.45-1,1.55-2.2a19.37,19.37,0,0,1,5.06-4.12,12.19,12.19,0,0,1,6.39-1.56C256.41,182.2,257.36,182.72,257.31,182.84Z"
+            />
+            <path
+              class="cls-2"
+              d="M234.55,161.82c.32.11-.63,3.44-.8,7.65s.45,7.62.13,7.69-1.46-3.33-1.25-7.74S234.29,161.71,234.55,161.82Z"
+            />
+            <g class="cls-3">
+              <path
+                d="M265.73,176.24A14.49,14.49,0,0,1,255.06,174c-3-2.17-5.5-5.7-5.22-9.42-5.18,1.14-10.68.47-14.28-3.51,2.28,4.12,7.18,6.72,11.79,5.78a9.28,9.28,0,0,0,3.88,7.25,19,19,0,0,0,7.84,3.19c2.95.61,6.24.94,8.83-.59,2.94-1.73,4-3.9,5.42-6.52C271.06,173,269.08,175.69,265.73,176.24Z"
+              />
+            </g>
+            <path
+              class="cls-5"
+              d="M455.83,176.69c-9.65-8.47-24.69-10.26-35.94-4.07-5-6.52-11.05-12.52-18.5-16s-16.53-4.24-23.84-.45-12.1,12.67-9.85,20.59a11.6,11.6,0,0,0,.86,20.67c-9.82-4-17.17,1.21-22.3,7.33s-5.77,15.35-2.26,22.52,10.7,12.2,18.5,13.9,16.09.29,23.32-3.07c7.89-3.67,14.94-10,17.48-18.33a36.49,36.49,0,0,0,33.46,15,35,35,0,0,0,28.41-23C469.25,199.65,465.49,185.16,455.83,176.69Z"
+            />
+            <path
+              class="cls-2"
+              d="M455.83,176.69a2.64,2.64,0,0,1,.43.35l1.21,1.09a29.52,29.52,0,0,1,4,4.9,34.22,34.22,0,0,1,5.35,22.82,32,32,0,0,1-6.36,15.54,36.11,36.11,0,0,1-15.67,11.82,34.12,34.12,0,0,1-22.07.83,37.31,37.31,0,0,1-19.85-14l.91-.14a28.74,28.74,0,0,1-10.08,14,41.27,41.27,0,0,1-16.34,7.64,33.72,33.72,0,0,1-18.62-.89A27.15,27.15,0,0,1,344,228.47c-4.34-7.83-3.57-18.21,2.33-24.69a24.73,24.73,0,0,1,10.18-7.43,17.14,17.14,0,0,1,12.24.55l-.42,1a12.13,12.13,0,0,1-.9-21.61l-.24.59a16.92,16.92,0,0,1,.86-11,20.75,20.75,0,0,1,6.51-8.39c5.71-4.25,12.92-5,19-3.82a35.73,35.73,0,0,1,15.9,7.59,65,65,0,0,1,10.64,11.17l-.43-.09a31.47,31.47,0,0,1,15.82-3.62,33.53,33.53,0,0,1,11.8,2.57,31.52,31.52,0,0,1,6.53,3.73c.67.53,1.15,1,1.49,1.24a3.2,3.2,0,0,1,.47.45,4.38,4.38,0,0,1-.53-.37l-1.54-1.17a34.11,34.11,0,0,0-6.55-3.55,33.76,33.76,0,0,0-11.68-2.37,31,31,0,0,0-15.48,3.68l-.25.14-.18-.23a65.08,65.08,0,0,0-10.6-11,35.11,35.11,0,0,0-15.56-7.35c-6-1.08-12.91-.33-18.31,3.72a19.81,19.81,0,0,0-6.17,8,15.93,15.93,0,0,0-.79,10.34l.11.39-.35.2a11.08,11.08,0,0,0,.83,19.73l-.43,1a16,16,0,0,0-11.47-.51,23.61,23.61,0,0,0-9.7,7.12c-5.57,6.09-6.31,16-2.19,23.42a26.06,26.06,0,0,0,14.13,11.66,32.63,32.63,0,0,0,18,.86,40.25,40.25,0,0,0,15.92-7.4,27.75,27.75,0,0,0,9.75-13.46l.32-1,.6.86A36.34,36.34,0,0,0,423,233.11a33.19,33.19,0,0,0,21.49-.71,35.37,35.37,0,0,0,15.38-11.47,31.32,31.32,0,0,0,6.33-15.16,33.4,33.4,0,0,0-.95-13.39,34.05,34.05,0,0,0-4.05-9.17A36.42,36.42,0,0,0,455.83,176.69Z"
+            />
+            <path
+              class="cls-6"
+              d="M372.08,212.78c-2.25-2.31-4.72-3.36-4.72-6.59-4.1-.8-8,2-11,4.81a24.69,24.69,0,0,0-5.66,7.06,10.72,10.72,0,0,0-.55,8.8c.6,1.37,2,2.7,3.39,2.26.78-.24,1.4-1,2.22-1,1.24,0,1.69,1.59,2.33,2.66a4,4,0,0,0,7.19-3.59c2.22,2,5.81.73,8-1.24a8.28,8.28,0,0,0,3-4.81C376.67,218,374.34,215.1,372.08,212.78Z"
+            />
+            <path
+              class="cls-2"
+              d="M416.73,172a4.68,4.68,0,0,1,.51,1.73,16.68,16.68,0,0,1,.08,4.91c-.41,4.19-2.69,9.56-5.73,15s-5.35,10.58-6,14.58,0,6.5-.22,6.53a4.58,4.58,0,0,1-.5-1.73,16.52,16.52,0,0,1-.06-4.92c.43-4.18,2.72-9.54,5.76-15s5.33-10.58,5.93-14.58S416.51,172,416.73,172Z"
+            />
+            <path
+              class="cls-6"
+              d="M403.75,177.06c-.5-2.18,1.26-6.07,1.28-6.74.06-1.65-3.1-1.14-4.49-.24s-2.39,2.3-3.75,3.24c-3.66,2.52-8.93,1.15-12.77,3.41-2.74,1.61-4.16,4.72-5.42,7.63-.49,1.14-.93,2.61-.07,3.5.6.61,1-.22,1.75-.54s1.85-1,2.62-1.42c5.29-2.49,10.47-2.27,16.86,1.29,1.29-2.93,4.83-5.61,8-5C406.07,180.87,404.23,179.13,403.75,177.06Z"
+            />
+            <path
+              class="cls-2"
+              d="M407.72,196.15c-.21.13-1.16-2.8-4.63-6a20.13,20.13,0,0,0-7-4.11,17.46,17.46,0,0,0-18.38,4,20.14,20.14,0,0,0-4.66,6.62c-1.86,4.32-1.52,7.38-1.77,7.35a5.71,5.71,0,0,1-.15-2.08,17,17,0,0,1,1.18-5.57,20,20,0,0,1,4.68-7.06,18.08,18.08,0,0,1,19.44-4.19,19.9,19.9,0,0,1,7.17,4.52,17.18,17.18,0,0,1,3.38,4.58A5.8,5.8,0,0,1,407.72,196.15Z"
+            />
+            <path
+              class="cls-2"
+              d="M409,167c.09.17-1,.66-2.11,2a11.42,11.42,0,0,0-2.56,6.21,5.66,5.66,0,0,0,.68,3.48,8.44,8.44,0,0,0,2,2.25c1.39,1.12,2.37,1.75,2.28,1.9s-1.16-.25-2.75-1.26a8.11,8.11,0,0,1-2.44-2.35,6.39,6.39,0,0,1-.92-4.11,10.65,10.65,0,0,1,3.11-6.67C407.75,167.13,409,166.89,409,167Z"
+            />
+            <path
+              class="cls-2"
+              d="M365.45,227.73c0-.22,2.13.74,5.19-.42a7.14,7.14,0,0,0,3.94-3.68,7.4,7.4,0,0,0-.06-6.49c-1.09-2.17-2.95-3.78-4.46-5.43a11.86,11.86,0,0,1-3.15-5.16,5.89,5.89,0,0,1,.39-4.08c.46-.88,1-1.17,1-1.13s-.29.45-.59,1.3a6,6,0,0,0,0,3.71,11.78,11.78,0,0,0,3.13,4.65c1.5,1.57,3.47,3.19,4.72,5.64a8.31,8.31,0,0,1,0,7.44,7.93,7.93,0,0,1-8.68,4.22C365.89,228.08,365.43,227.79,365.45,227.73Z"
+            />
+            <g class="cls-3">
+              <path
+                d="M417.13,175.21c-.3,4.9-2.16,9.56-4.31,14s-4.92,8.56-6.36,13.24-2.18,7.58-1,12.35a26.16,26.16,0,0,1,1.13-8.71,25.17,25.17,0,0,1,4-6.45c4.31-5.66,5.26-6.91,7-11.52C418.9,184.43,418.19,180.8,417.13,175.21Z"
+              />
+            </g>
+            <path
+              class="cls-1"
+              d="M362,189.19A19.13,19.13,0,0,0,358.66,157c-3.19-1.59-7-2.43-9.12-5.3-1.37-1.86-1.74-4.24-2.34-6.47-1.85-6.87-6.84-13.29-13.75-15s-15.26,2.89-16,10a21.92,21.92,0,0,0-19.56,2.1c-5.7,3.74-8.79,10-10,17-11.31,9.18-15,25.62-8.13,38.46s23.41,19.6,37.31,15.26c-.7,9.44,6.18,18.88,15.38,21.09a20.8,20.8,0,0,0,23.27-11.8c8.42,1,17.09-5.29,18.67-13.62S370.19,191.29,362,189.19Z"
+            />
+            <path
+              class="cls-2"
+              d="M362,189.19a13.75,13.75,0,0,1,3.3,1.16,18.14,18.14,0,0,1,9.55,13.84,15.47,15.47,0,0,1-1.49,8.56,18.13,18.13,0,0,1-6.75,7.38,17.34,17.34,0,0,1-10.91,2.57l.42-.25a20.59,20.59,0,0,1-8.28,9.44,21.16,21.16,0,0,1-13.37,3c-9.74-1-18.57-10.78-17.89-21.95l.68.54a33.07,33.07,0,0,1-27.73-4.43,31.3,31.3,0,0,1-10.28-11.17,32.25,32.25,0,0,1-2.72-7.33,32.16,32.16,0,0,1,11-31.72l-.2.33a30.5,30.5,0,0,1,3.55-10.13,21.17,21.17,0,0,1,7.29-7.54,22.47,22.47,0,0,1,19.47-1.77l-.7.42a11.8,11.8,0,0,1,6.19-8.78,14.41,14.41,0,0,1,10.23-1.63,17.51,17.51,0,0,1,8.51,5,23.82,23.82,0,0,1,4.94,7.94c1.15,2.84,1.3,5.86,2.66,8.18s3.94,3.46,6.29,4.45a22.82,22.82,0,0,1,6.6,3.69,19.93,19.93,0,0,1,4.48,5.27,18.94,18.94,0,0,1,2.59,11.3,19.84,19.84,0,0,1-2.66,8.22,18.43,18.43,0,0,1-3.37,4.2,11.71,11.71,0,0,1-1.44,1.16,22.25,22.25,0,0,0,4.53-5.52,19.87,19.87,0,0,0,2.46-8.1,18.43,18.43,0,0,0-2.64-10.94,19.48,19.48,0,0,0-4.38-5.07,22.39,22.39,0,0,0-6.46-3.52c-2.35-1-5.14-2.11-6.69-4.73s-1.64-5.59-2.77-8.29a22.89,22.89,0,0,0-4.79-7.61,16.53,16.53,0,0,0-8.07-4.72,13.44,13.44,0,0,0-9.53,1.56,10.8,10.8,0,0,0-5.66,8l-.06.66-.63-.24a21.42,21.42,0,0,0-18.54,1.74,20.22,20.22,0,0,0-6.91,7.17,29.56,29.56,0,0,0-3.4,9.77l0,.2-.16.14a31.13,31.13,0,0,0-11.35,23,28.85,28.85,0,0,0,3.32,14.65,30.25,30.25,0,0,0,9.9,10.77,32.06,32.06,0,0,0,26.81,4.35l.73-.22,0,.76c-.7,10.54,7.74,20,16.95,20.93a20.25,20.25,0,0,0,12.8-2.85,19.75,19.75,0,0,0,8-9l.12-.28.3,0a16.56,16.56,0,0,0,10.43-2.38,17.58,17.58,0,0,0,6.56-7.05,15,15,0,0,0,1.52-8.22,17.32,17.32,0,0,0-2.17-6.76,17.63,17.63,0,0,0-6.94-6.93A29.67,29.67,0,0,0,362,189.19Z"
+            />
+            <path
+              class="cls-2"
+              d="M317.76,211.56c-.12,0-.34-1.35,0-3.54a19.38,19.38,0,0,1,9.48-13.78c1.94-1.07,3.28-1.36,3.32-1.24s-1.15.72-2.9,1.91a22.29,22.29,0,0,0-9.12,13.26C318,210.23,318,211.56,317.76,211.56Z"
+            />
+            <path
+              class="cls-2"
+              d="M288.49,156.75c.27,0-1.22,3.83-.49,10.05a30.48,30.48,0,0,0,3.18,10.36,27.19,27.19,0,0,0,8.51,10c1.79,1.41,4.34,2.1,5.63,4.48a6.24,6.24,0,0,1,.44,3.57,25.8,25.8,0,0,0-.3,3.12,13.58,13.58,0,0,0,4.27,9.5,15.15,15.15,0,0,0,6.21,3.7c1.67.5,2.65.52,2.64.64s-.24.05-.71,0a10.6,10.6,0,0,1-2-.25,14.78,14.78,0,0,1-6.65-3.55,14.18,14.18,0,0,1-4.75-10.07c-.09-2.18.83-4.42-.09-6.21s-3.32-2.58-5.29-4.05a27.57,27.57,0,0,1-8.8-10.47,29.81,29.81,0,0,1-3-10.75,24.42,24.42,0,0,1,.43-7.51,13.69,13.69,0,0,1,.56-2C288.36,157,288.46,156.74,288.49,156.75Z"
+            />
+            <path
+              class="cls-6"
+              d="M329.9,171c-1-1-2.28-1.76-3.35-2.73-4.38-3.94-5.07-10.94-9.67-14.6-4.29-3.42-11.17-2.52-14.86,1.53s-4.13,10.52-1.52,15.34a17.24,17.24,0,0,0,13.35,8.47c5.45.57,10,1,14.58-2.07,1.33.56,2.9-.68,3.1-2.1A4.72,4.72,0,0,0,329.9,171Z"
+            />
+            <path
+              class="cls-6"
+              d="M342.69,149.82a13,13,0,0,0-6.92-7.45c-1.64-.66-3.71-.83-5,.35a4.3,4.3,0,0,0-1.15,3.84,16,16,0,0,0,1.35,3.94A43.37,43.37,0,0,1,334,173.12l2.23,1.11c5-2.46,7.21-8.53,7.66-14.12A23.3,23.3,0,0,0,342.69,149.82Z"
+            />
+            <path
+              class="cls-6"
+              d="M366.27,200.83c-2.64-2.23-6.32-2.66-9.77-2.7s-7,.21-10.24-1c-2.29-.84-4.55-2.94-4.05-5.32.26-1.23,1.19-2.19,1.82-3.28a7.28,7.28,0,0,0-.43-7.76c-1.63-2.21-6-1.34-8.64-.73h0a7.58,7.58,0,0,0-5.82,4.53,7.67,7.67,0,0,0,4.62,9.66c-1.43.35-1.92,2.32-1.25,3.63a6.58,6.58,0,0,0,3.4,2.69,9.9,9.9,0,0,1,3.71,2.32c2.06,2.47.87,6.15,0,9.25-.76,2.8-1.14,5.88,0,8.53s4.35,4.58,7,3.52c4.48-1.77,3.73-9.07,7.74-11.73,3.67-2.44,9.39.34,12.7-2.58C369.77,207.61,368.9,203.05,366.27,200.83Z"
+            />
+            <path
+              class="cls-2"
+              d="M362.17,189c-.12.31-3.81-1.05-8.57-1.47s-8.63.19-8.69-.14,3.84-1.46,8.8-1S362.31,188.71,362.17,189Z"
+            />
+            <path
+              class="cls-2"
+              d="M333.84,174.23c-.36,0,1-7.25-1.06-15.86s-5.9-14.76-5.56-14.94c.12-.07,1.23,1.37,2.63,4a43.31,43.31,0,0,1,4,10.73,38.09,38.09,0,0,1,.86,11.44C334.48,172.5,334,174.25,333.84,174.23Z"
+            />
+            <g class="cls-3">
+              <path
+                d="M318.58,212.19c-7.71-.39-14.28-7.62-13.6-15,.16-1.74.66-3.58-.08-5.18s-2.53-2.53-4.11-3.46C290.4,182.41,285,168,288.49,156.75c0,0-3.47,5.45-2.44,16,1.39,14.07,15.23,17.56,16,22.05s.62,10.28,3.57,14.28S318.58,212.19,318.58,212.19Z"
+              />
+            </g>
+            <g class="cls-3">
+              <path
+                d="M338,157.51a20.1,20.1,0,0,0-7.94-13.9c-.38-.28-.93-.54-1.31-.24s-.2,1,0,1.45c4.45,8.88,6.69,18.81,5.19,28.64l.35-.21A24.91,24.91,0,0,0,338,157.51Z"
+              />
+            </g>
+            <path
+              class="cls-7"
+              d="M166.91,114.36a19.13,19.13,0,0,0-32.18,3.31c-1.58,3.19-2.43,7-5.3,9.13-1.86,1.36-4.23,1.73-6.46,2.33-6.87,1.85-13.3,6.84-15,13.75s2.88,15.26,10,16a21.89,21.89,0,0,0,2.1,19.56c3.74,5.7,10,8.8,17,10,9.19,11.31,25.63,15,38.47,8.13s19.59-23.41,15.26-37.31a20.8,20.8,0,0,0,21.08-15.38c2.21-9.2-3.07-19.62-11.79-23.27,1-8.42-5.29-17.09-13.63-18.67S169,106.14,166.91,114.36Z"
+            />
+            <path
+              class="cls-2"
+              d="M166.91,114.36a13.75,13.75,0,0,1,1.16-3.3,17.47,17.47,0,0,1,6.91-7.22,17.68,17.68,0,0,1,6.93-2.33,15.49,15.49,0,0,1,8.56,1.49,18.19,18.19,0,0,1,7.38,6.75,17.27,17.27,0,0,1,2.56,10.91l-.24-.42a20.62,20.62,0,0,1,9.43,8.28,21.17,21.17,0,0,1,3,13.37c-1,9.74-10.79,18.57-21.95,17.89l.54-.68a33.07,33.07,0,0,1-4.44,27.73,31.19,31.19,0,0,1-11.16,10.28,32.6,32.6,0,0,1-7.33,2.72,32.17,32.17,0,0,1-31.73-11l.34.2a30.35,30.35,0,0,1-10.13-3.55,21.14,21.14,0,0,1-7.54-7.28,22.49,22.49,0,0,1-1.78-19.48l.43.7a11.78,11.78,0,0,1-8.78-6.19A14.41,14.41,0,0,1,107.48,143a17.35,17.35,0,0,1,5-8.51,23.72,23.72,0,0,1,7.94-4.94c2.83-1.15,5.86-1.3,8.17-2.66s3.47-3.94,4.46-6.29a22.8,22.8,0,0,1,3.68-6.6,20.13,20.13,0,0,1,5.28-4.48,18.93,18.93,0,0,1,11.3-2.59,19.89,19.89,0,0,1,8.22,2.66,18.89,18.89,0,0,1,4.2,3.37,11.71,11.71,0,0,1,1.16,1.44,22.25,22.25,0,0,0-5.52-4.53,19.92,19.92,0,0,0-8.1-2.46A18.55,18.55,0,0,0,142.34,110a19.44,19.44,0,0,0-5.06,4.38,22.3,22.3,0,0,0-3.53,6.46c-1,2.35-2.11,5.14-4.73,6.69s-5.58,1.64-8.28,2.77a22.76,22.76,0,0,0-7.61,4.8,16.45,16.45,0,0,0-4.72,8.06A13.39,13.39,0,0,0,110,152.7a10.8,10.8,0,0,0,8,5.66l.67.06-.24.63a21.45,21.45,0,0,0,1.73,18.54,20.09,20.09,0,0,0,7.18,6.91,29.48,29.48,0,0,0,9.77,3.4l.2,0,.13.16a31.13,31.13,0,0,0,23,11.35,28.78,28.78,0,0,0,14.64-3.32,30.08,30.08,0,0,0,10.77-9.9,32,32,0,0,0,4.36-26.81l-.22-.73.76,0c10.53.7,20-7.74,20.93-16.95a20.25,20.25,0,0,0-2.85-12.8,19.8,19.8,0,0,0-9-8l-.28-.12,0-.3a16.57,16.57,0,0,0-2.39-10.43,17.56,17.56,0,0,0-7-6.56,15,15,0,0,0-8.22-1.52,17.42,17.42,0,0,0-6.77,2.17,17.63,17.63,0,0,0-6.93,6.94A27.9,27.9,0,0,0,166.91,114.36Z"
+            />
+            <path
+              class="cls-2"
+              d="M189.28,158.57c0,.12-1.36.34-3.55,0a19.12,19.12,0,0,1-8-3.18,19.34,19.34,0,0,1-5.82-6.3c-1.07-1.93-1.35-3.28-1.23-3.32s.71,1.15,1.91,2.9a22.3,22.3,0,0,0,13.25,9.12C187.94,158.31,189.28,158.39,189.28,158.57Z"
+            />
+            <path
+              class="cls-2"
+              d="M134.47,187.84c0-.27,3.82,1.22,10.05.49a30.32,30.32,0,0,0,10.36-3.18,27.16,27.16,0,0,0,10-8.51c1.42-1.79,2.11-4.34,4.48-5.63a6.25,6.25,0,0,1,3.57-.44,26,26,0,0,0,3.13.3,13.58,13.58,0,0,0,9.5-4.27,15.15,15.15,0,0,0,3.7-6.21c.49-1.67.52-2.65.64-2.64s.05.24,0,.71a10,10,0,0,1-.26,2,14.68,14.68,0,0,1-3.55,6.65,14.12,14.12,0,0,1-10.07,4.75c-2.18.09-4.41-.83-6.2.09s-2.58,3.32-4.06,5.29a27.57,27.57,0,0,1-10.47,8.8,29.94,29.94,0,0,1-10.74,3,24.66,24.66,0,0,1-7.51-.44,13.9,13.9,0,0,1-2-.56C134.68,188,134.45,187.87,134.47,187.84Z"
+            />
+            <path
+              class="cls-6"
+              d="M148.76,146.43c-1,1-1.76,2.28-2.73,3.35-3.94,4.38-10.94,5.07-14.61,9.67-3.41,4.29-2.52,11.17,1.53,14.86s10.53,4.13,15.34,1.52a17.27,17.27,0,0,0,8.48-13.34c.57-5.46,1-10.06-2.07-14.59.55-1.33-.68-2.9-2.11-3.1A4.71,4.71,0,0,0,148.76,146.43Z"
+            />
+            <path
+              class="cls-6"
+              d="M127.54,133.64a13,13,0,0,0-7.45,6.92c-.67,1.64-.83,3.71.35,5a4.3,4.3,0,0,0,3.84,1.15,15.9,15.9,0,0,0,3.93-1.35,43.4,43.4,0,0,1,22.63-3.07l1.1-2.23c-2.45-5-8.52-7.21-14.11-7.65A23.27,23.27,0,0,0,127.54,133.64Z"
+            />
+            <path
+              class="cls-6"
+              d="M178.54,110.07c-2.22,2.63-2.66,6.31-2.7,9.76s.21,7-1,10.24c-.83,2.29-2.94,4.55-5.32,4.05-1.23-.26-2.19-1.19-3.27-1.82a7.28,7.28,0,0,0-7.77.44c-2.21,1.62-1.33,6-.73,8.63h0a7.3,7.3,0,0,0,14.2,1.2c.35,1.43,2.32,1.92,3.63,1.25a6.65,6.65,0,0,0,2.69-3.39,9.83,9.83,0,0,1,2.31-3.72c2.48-2.06,6.15-.87,9.26,0,2.8.77,5.88,1.14,8.53,0s4.58-4.36,3.51-7c-1.77-4.48-9.06-3.73-11.72-7.73-2.45-3.68.34-9.4-2.58-12.71C185.33,106.56,180.77,107.43,178.54,110.07Z"
+            />
+            <path
+              class="cls-2"
+              d="M166.67,114.16c.32.12-1,3.81-1.47,8.57s.2,8.63-.13,8.69-1.46-3.84-1-8.8S166.43,114,166.67,114.16Z"
+            />
+            <path
+              class="cls-2"
+              d="M151.94,142.49c0,.36-7.24-1-15.85,1.06s-14.76,5.9-14.94,5.56c-.07-.12,1.37-1.23,3.95-2.63a43.4,43.4,0,0,1,10.74-4,38.41,38.41,0,0,1,11.44-.86C150.21,141.85,152,142.37,151.94,142.49Z"
+            />
+            <g class="cls-3">
+              <path
+                d="M189.91,157.75c-.39,7.71-7.63,14.28-15,13.6-1.74-.16-3.58-.66-5.18.08s-2.53,2.53-3.47,4.11c-6.16,10.39-20.62,15.78-31.82,12.3,0,0,5.45,3.47,16,2.44,14.08-1.39,17.57-15.23,22-16s10.28-.62,14.29-3.57S189.91,157.75,189.91,157.75Z"
+              />
+            </g>
+            <g class="cls-3">
+              <path
+                d="M135.22,138.34a20.08,20.08,0,0,0-13.89,7.94c-.28.39-.54.93-.24,1.31s1,.2,1.44,0c8.89-4.45,18.81-6.69,28.64-5.19L151,142A25,25,0,0,0,135.22,138.34Z"
+              />
+            </g>
+            <path
+              class="cls-6"
+              d="M254.46,182.37a26.88,26.88,0,0,0-18.28-2.94,23.14,23.14,0,0,0-14.55,9.12c-.87,4.48,1.84,9.18,5.78,11.48s8.85,2.52,13.31,1.5,8.57-3.15,12.59-5.33c2.86-1.55,6.05-3.67,6.22-6.92C259.68,186.27,257.08,183.86,254.46,182.37Z"
+            />
+            <g class="cls-3">
+              <path
+                d="M225.2,196l.26,2a4.56,4.56,0,0,0,3.34,2.86,12.11,12.11,0,0,0,4.53,0A54.33,54.33,0,0,0,248,197.23a25.12,25.12,0,0,0,11.58-9.53A40.79,40.79,0,0,0,225.2,196Z"
+              />
+            </g>
+            <path
+              class="cls-7"
+              d="M273.91,191.75c-13.12-7.39-29.68-2.19-42.92,5l-2.61,1.62c-3.41-3.65-6.94-7.53-8.18-12.37s.71-10.9,5.45-12.49c4-1.35,8.91.77,12.51-1.5,3-1.89,3.62-6.25,2.11-9.43s-4.64-5.31-7.9-6.66C219,150.35,201.88,157.2,196,170.41a16.92,16.92,0,0,0-16.77,29.05,25,25,0,0,0-1.57,26.43,26.23,26.23,0,0,0,46.84,14.37c10.18,7.33,23.37,10.82,35.62,8.12s23.15-12,26.5-24.1S284.84,197.91,273.91,191.75Z"
+            />
+            <path
+              class="cls-2"
+              d="M273.91,191.75a2.65,2.65,0,0,1,.47.25l1.35.8c.58.37,1.25.92,2.07,1.52a28,28,0,0,1,7.78,10.78,30.41,30.41,0,0,1,2.31,13,29.69,29.69,0,0,1-5.22,15.47,36.67,36.67,0,0,1-14.59,12.47,38.7,38.7,0,0,1-21.47,3.37,48.56,48.56,0,0,1-22.39-8.78l.69-.1A27.49,27.49,0,0,1,197.19,250c-10.49-2.6-19.21-12.52-20.07-24.08l.07.23a25.66,25.66,0,0,1,1.49-26.87l.11-.16.11.78c-6.89-5.4-8.64-15.82-4.2-23a18.08,18.08,0,0,1,21.52-7l-.7.28a28.63,28.63,0,0,1,4.41-6.76,30.46,30.46,0,0,1,20.56-9.88,26.47,26.47,0,0,1,14.32,3,14.16,14.16,0,0,1,5.34,4.82,9,9,0,0,1,1.11,6.94,7.08,7.08,0,0,1-1.68,3.13,6.47,6.47,0,0,1-3,1.77c-2.26.62-4.48.32-6.56.28a9.88,9.88,0,0,0-5.77,1.2,8.72,8.72,0,0,0-3.35,4.57,11.86,11.86,0,0,0-.5,5.56,15.77,15.77,0,0,0,1.84,5.12,43.54,43.54,0,0,0,6.42,8.2l-.45-.06c13-7.91,25.35-10.73,33.63-10a29,29,0,0,1,9.19,2.18,27.91,27.91,0,0,1,2.9,1.5,3.91,3.91,0,0,1-.76-.32c-.51-.21-1.21-.62-2.22-1a29.6,29.6,0,0,0-9.14-2c-8.17-.63-20.36,2.28-33.22,10.19l-.25.15-.2-.21a44,44,0,0,1-6.59-8.31,16.73,16.73,0,0,1-2-5.38,12.72,12.72,0,0,1,.51-6,9.6,9.6,0,0,1,3.67-5,10.67,10.67,0,0,1,6.27-1.37c2.13,0,4.29.3,6.29-.27a5.65,5.65,0,0,0,4-4.25,8,8,0,0,0-1-6.19,13.23,13.23,0,0,0-5-4.46,25.53,25.53,0,0,0-13.77-2.81,29.93,29.93,0,0,0-14,4.64,30.37,30.37,0,0,0-5.83,4.93,27.5,27.5,0,0,0-4.21,6.49l-.23.48-.48-.2a17,17,0,0,0-20.16,6.59c-4.15,6.64-2.48,16.54,3.94,21.52l.41.32-.3.46-.1.15a24.54,24.54,0,0,0-1.44,25.67l.06.1v.13c.79,11,9.2,20.64,19.22,23.12a26.5,26.5,0,0,0,26.67-9l.3-.38.39.28a47.63,47.63,0,0,0,21.91,8.67,37.91,37.91,0,0,0,21-3.2,36,36,0,0,0,14.35-12.12,29.28,29.28,0,0,0,5.22-15.1,30.2,30.2,0,0,0-2.14-12.83,28,28,0,0,0-11.25-13.52Z"
+            />
+            <path
+              class="cls-2"
+              d="M226.51,199.52c-.17.15-1.95-2.33-5.85-5.12a30,30,0,0,0-34.87-.42c-4,2.7-5.8,5.13-6,5a6.77,6.77,0,0,1,1.25-1.72,26.07,26.07,0,0,1,4.26-3.91,29.46,29.46,0,0,1,35.81.43,25.71,25.71,0,0,1,4.16,4A7,7,0,0,1,226.51,199.52Z"
+            />
+            <path
+              class="cls-2"
+              d="M205.65,188c0,.12-1.28-.2-3-1.33a16.22,16.22,0,0,1-7-13.69c.09-2.05.56-3.24.68-3.2s0,1.25.11,3.19a18.42,18.42,0,0,0,6.65,13.06C204.63,187.3,205.73,187.87,205.65,188Z"
+            />
+            <g class="cls-3">
+              <path
+                d="M225.69,237.36a42.25,42.25,0,0,1,2-35.25s-8.37,10.14-7.46,20.11S225.69,237.36,225.69,237.36Z"
+              />
+            </g>
+            <path
+              class="cls-2"
+              d="M225.69,237.36c-.11,0-1.09-1.77-2-5a39.46,39.46,0,0,1,1.42-25.56c1.29-3.08,2.47-4.78,2.57-4.72.36.13-3.8,7.41-4.29,17.44S226.07,237.27,225.69,237.36Z"
+            />
+            <path
+              class="cls-2"
+              d="M197.4,226.56c.06.12-.91.83-2.72,1.52a18.45,18.45,0,0,1-7.44,1.1,18.74,18.74,0,0,1-7.27-1.92c-1.72-.89-2.6-1.71-2.52-1.81.16-.32,4.17,2.34,9.86,2.61S197.27,226.24,197.4,226.56Z"
+            />
+            <path
+              class="cls-1"
+              d="M466.27,139.93c-1-5.22-2.18-10.56-5.14-15s-8.11-7.75-13.39-7.07a18.19,18.19,0,0,0-35.28,2.27c-8.45-9.46-21-17-33.62-15.91s-24.61,9-30.06,20.48-3.91,26.07,4.28,35.76,22.72,13.65,34.49,8.9c1.77,6.11,7,10.75,12.85,13.27s12.3,3.2,18.64,3.68c7.88.59,16.29.79,23.1-3.21S453,169.38,448.24,163c2.74,3.63,8.42,4.11,12.32,1.77s6.11-6.83,6.73-11.34S467.13,144.4,466.27,139.93Z"
+            />
+            <path
+              class="cls-2"
+              d="M466.27,139.93a3.34,3.34,0,0,1,.18.68c.11.51.24,1.18.42,2a40.74,40.74,0,0,1,.82,8,18.37,18.37,0,0,1-4.13,12,11,11,0,0,1-7.14,3.83,9.34,9.34,0,0,1-8.46-3.25l.57-.42a11.61,11.61,0,0,1,1.81,3.86,13.19,13.19,0,0,1,.22,4.44,17.09,17.09,0,0,1-3.76,8.5,18.29,18.29,0,0,1-8.2,5.64,33.87,33.87,0,0,1-10.42,1.83,99.45,99.45,0,0,1-11.1-.43,70.13,70.13,0,0,1-11.53-1.75,30.4,30.4,0,0,1-11.09-5.12A20.25,20.25,0,0,1,387,169.54l.71.35a31.42,31.42,0,0,1-25.47-1.48,30.84,30.84,0,0,1-10.54-8.7,29.57,29.57,0,0,1-3.6-6,31.73,31.73,0,0,1-2.25-6.69,34.52,34.52,0,0,1,4.54-26.36,38.17,38.17,0,0,1,20.5-15.36,34.19,34.19,0,0,1,12.32-1.61,35.64,35.64,0,0,1,11.62,2.9,52.55,52.55,0,0,1,17.94,13.26l-.81.23a19,19,0,0,1,7.38-11.63,18.08,18.08,0,0,1,12.16-3.67,19.25,19.25,0,0,1,10.69,4.44,18.53,18.53,0,0,1,5.82,8.57l-.35-.22a12.44,12.44,0,0,1,7.1,1.36,17.13,17.13,0,0,1,5,3.94,24.47,24.47,0,0,1,4.66,8.87,48.08,48.08,0,0,1,1.79,8.19,2.76,2.76,0,0,1-.14-.52c-.09-.4-.21-.91-.36-1.56a61.73,61.73,0,0,0-1.61-6,24.39,24.39,0,0,0-4.71-8.65,16.5,16.5,0,0,0-4.91-3.76,11.84,11.84,0,0,0-6.75-1.24l-.27,0-.08-.26a17.81,17.81,0,0,0-5.67-8.2,18.5,18.5,0,0,0-10.29-4.2,17.19,17.19,0,0,0-11.57,3.57,18.16,18.16,0,0,0-7,11.09l-.17.94-.64-.7a51.59,51.59,0,0,0-17.64-13,34.67,34.67,0,0,0-11.29-2.79,33.11,33.11,0,0,0-11.93,1.6,37.11,37.11,0,0,0-19.89,14.93A33.49,33.49,0,0,0,347,146.77a31.08,31.08,0,0,0,2.18,6.48,28.14,28.14,0,0,0,3.47,5.78,29.6,29.6,0,0,0,10.15,8.39,30.3,30.3,0,0,0,24.57,1.47l.55-.22.16.57a19.29,19.29,0,0,0,7,9.73,29.49,29.49,0,0,0,10.71,5,68.13,68.13,0,0,0,11.36,1.76,98.17,98.17,0,0,0,11,.47,33.08,33.08,0,0,0,10.15-1.73,17.4,17.4,0,0,0,7.86-5.33A16.32,16.32,0,0,0,449.8,171a12.88,12.88,0,0,0-.18-4.17,11.08,11.08,0,0,0-1.66-3.62l.57-.43a8.66,8.66,0,0,0,7.82,3.05,10.48,10.48,0,0,0,6.8-3.57,18.1,18.1,0,0,0,4.16-11.67,46,46,0,0,0-.63-8c-.14-.86-.24-1.53-.32-2A5.79,5.79,0,0,1,466.27,139.93Z"
+            />
+            <path
+              class="cls-2"
+              d="M401.88,133.14c.07,0,.34.47.77,1.41a22.69,22.69,0,0,1,1.26,4.19,27.84,27.84,0,0,1-.9,14.35,26.1,26.1,0,0,1-8.07,11.9c-2.88,2.36-5,3.23-5.08,3.12s1.9-1.27,4.55-3.72a27.59,27.59,0,0,0,7.53-11.65,30,30,0,0,0,1.19-13.86C402.62,135.3,401.68,133.21,401.88,133.14Z"
+            />
+            <path
+              class="cls-2"
+              d="M449.78,117.79c0,.19-1.49.09-3.81.42a22.8,22.8,0,0,0-15.18,9.17c-1.37,1.9-2,3.25-2.15,3.18s.24-1.52,1.49-3.62a20.37,20.37,0,0,1,15.76-9.52C448.33,117.28,449.8,117.67,449.78,117.79Z"
+            />
+            <g class="cls-3">
+              <path
+                d="M434.43,119.62c-3.63,2.73-6.54,7.95-6.54,12.15a21.89,21.89,0,0,1,19.4-14.21C443.09,115.84,438.07,116.9,434.43,119.62Z"
+              />
+            </g>
+            <g class="cls-3">
+              <path
+                d="M391.32,166.88a20.23,20.23,0,0,0,12.32-28.82,29.16,29.16,0,0,1-11.94,28.83"
+              />
+            </g>
+            <path
+              class="cls-1"
+              d="M202.17,190.08c-2.93-13.36-15.3-23.79-28.88-25.41s-25.62,6.2-33.7,17.24A45.33,45.33,0,0,0,91,185.1c-2.51,1.91-4.9,4.19-6.08,7.12s-.9,6.64,1.38,8.83c4,3.91,10.71.95,15.42-2.13-3,4.66-5.61,9.77-6.23,15.3s1,11.53,5.28,15.1,11.3,3.88,15.14-.14c-4.66,9.4-.75,21.59,7.45,28.13,10.59,8.44,25.47,8.14,39,7.42,5.63-.29,12.21-1.14,15-6,7.35.75,13.41-6.79,13.88-14.16s-3-14.36-6.33-20.94C197.65,218.62,205.1,203.45,202.17,190.08Z"
+            />
+            <path
+              class="cls-2"
+              d="M202.17,190.08a4,4,0,0,1,.17.68c.08.46.24,1.13.37,2a29.73,29.73,0,0,1-.12,8,31.92,31.92,0,0,1-4.5,12A28,28,0,0,1,185,223.92l.18-.48c1.39,2.72,2.87,5.61,4.12,8.78a31.2,31.2,0,0,1,2.34,10.45,17.43,17.43,0,0,1-3.45,11c-2.34,3.26-6.4,5.9-10.92,5.46l.45-.23c-1.69,3-5,4.66-8.27,5.39a57,57,0,0,1-10.24,1.06c-6.94.29-14.27.42-21.67-1.12s-14.9-5.13-19.53-11.85a26.16,26.16,0,0,1-4.47-11.24,21.16,21.16,0,0,1,1.81-12.23l.9.63a11.2,11.2,0,0,1-10.51,2.77,12.46,12.46,0,0,1-5.2-2.45,14.54,14.54,0,0,1-3.67-4.5,20.19,20.19,0,0,1-1.49-14.12,40.55,40.55,0,0,1,5.82-12.65l.77.76a32.12,32.12,0,0,1-5.43,2.89,14.08,14.08,0,0,1-6.07,1.17,7.26,7.26,0,0,1-5.43-3,8.53,8.53,0,0,1-1.32-6c.55-4.18,3.58-7.26,6.53-9.55a44.46,44.46,0,0,1,9.74-5.61c13.73-5.67,28.88-4.16,39.79,2.15l-.59.13A49,49,0,0,1,152,169.5a33.6,33.6,0,0,1,14.87-5.25,31.68,31.68,0,0,1,13.69,1.82,35,35,0,0,1,10.17,5.74,32.76,32.76,0,0,1,9.83,12.81,26.37,26.37,0,0,1,1.35,4c.22.94.3,1.42.3,1.42s-.17-.46-.44-1.38a28.61,28.61,0,0,0-1.46-4,33.13,33.13,0,0,0-9.9-12.52,35,35,0,0,0-10.06-5.55A31.14,31.14,0,0,0,166.9,165a33,33,0,0,0-14.5,5.21,48.32,48.32,0,0,0-12.45,12l-.24.32-.35-.2c-10.69-6.13-25.54-7.56-38.94-2a43.27,43.27,0,0,0-9.49,5.49c-2.88,2.23-5.64,5.15-6.11,8.84a7.45,7.45,0,0,0,1.14,5.2,6.15,6.15,0,0,0,4.62,2.49c3.77.17,7.49-1.77,10.81-3.89l2.14-1.36-1.37,2.13a39.62,39.62,0,0,0-5.66,12.31,19.14,19.14,0,0,0,1.39,13.34,12,12,0,0,0,8.12,6.38,10.12,10.12,0,0,0,9.47-2.45l2.45-2.55-1.55,3.18A20.06,20.06,0,0,0,114.67,241a24.81,24.81,0,0,0,4.27,10.77c4.41,6.43,11.71,10,18.85,11.46s14.49,1.42,21.41,1.15a56.52,56.52,0,0,0,10.06-1c3.16-.7,6.17-2.26,7.69-4.92l.15-.26.3,0c4.09.42,7.88-2,10.13-5.06a16.64,16.64,0,0,0,3.33-10.49,30.23,30.23,0,0,0-2.23-10.2c-1.21-3.13-2.66-6-4-8.74l-.17-.33.35-.14a27.55,27.55,0,0,0,12.86-10.76,31.8,31.8,0,0,0,4.59-11.78,31.09,31.09,0,0,0,.29-7.92c-.11-.86-.21-1.54-.28-2A5.08,5.08,0,0,1,202.17,190.08Z"
+            />
+            <path
+              class="cls-2"
+              d="M172.09,221.25a7.53,7.53,0,0,1-2-.5,17,17,0,0,1-2.26-.82,28,28,0,0,1-2.9-1.32,42.82,42.82,0,0,1-7-4.46,45.44,45.44,0,0,1-12.74-15.68,42.17,42.17,0,0,1-2.93-7.76,28.22,28.22,0,0,1-.7-3.11,17.14,17.14,0,0,1-.34-2.38,6.77,6.77,0,0,1-.08-2c.22,0,.5,2.87,1.88,7.3a48,48,0,0,0,3.09,7.52,53.43,53.43,0,0,0,5.44,8.32,52.89,52.89,0,0,0,7,7,47.29,47.29,0,0,0,6.73,4.57C169.38,220.17,172.16,221,172.09,221.25Z"
+            />
+            <path
+              class="cls-2"
+              d="M160,253.06c-.14-.14,1.18-1.54,2.84-4.1a33.5,33.5,0,0,0,5.05-22.72c-.42-3-1-4.85-.83-4.91s1,1.71,1.61,4.78a30.07,30.07,0,0,1-5.18,23.3C161.58,251.93,160.05,253.14,160,253.06Z"
+            />
+            <g class="cls-3">
+              <path
+                d="M141.41,184.58a31.39,31.39,0,0,0,2.74,15.95,38.86,38.86,0,0,0-17.54,17.17A34.71,34.71,0,0,1,140,206.14a6.65,6.65,0,0,1,4-.91,7.47,7.47,0,0,1,2.77,1.36c3.84,2.62,8.55,5.55,12.39,8.17-3.8-3.91-8.48-8.13-11.61-12.59s-5.41-12.19-6.12-17.59"
+              />
+            </g>
+            <path
+              class="cls-2"
+              d="M120.82,189.38c.08.33-4.77,1.59-10.14,4.48s-9.14,6.17-9.37,5.91,3.29-4,8.84-6.9S120.78,189.1,120.82,189.38Z"
+            />
+            <path
+              class="cls-2"
+              d="M124.27,219.22c.24.19-1.42,2.64-3.72,5.47s-4.35,4.95-4.6,4.76,1.43-2.65,3.73-5.47S124,219,124.27,219.22Z"
+            />
+            <polygon
+              class="cls-5"
+              points="65.92 225.47 148.13 735.96 442.17 735.96 506.11 225.47 65.92 225.47"
+            />
+            <polygon
+              class="cls-6"
+              points="94.83 241.29 158.2 736.08 183.28 736.08 130.13 241.29 94.83 241.29"
+            />
+            <polygon
+              class="cls-6"
+              points="161.23 241.17 213.88 735.96 238.96 735.96 196.53 241.17 161.23 241.17"
+            />
+            <polygon
+              class="cls-6"
+              points="233.69 241.17 263.51 735.96 288.59 735.96 268.98 241.17 233.69 241.17"
+            />
+            <polygon
+              class="cls-6"
+              points="304.53 241.17 314.75 735.96 339.83 735.96 339.83 241.17 304.53 241.17"
+            />
+            <polygon
+              class="cls-6"
+              points="368.7 241.17 362.45 735.96 387.54 735.96 403.99 241.17 368.7 241.17"
+            />
+            <polygon
+              class="cls-6"
+              points="444.7 241.17 408.54 735.96 433.62 735.96 480 241.17 444.7 241.17"
+            />
+            <path
+              class="cls-2"
+              d="M66.85,225.47,507,225h.55l-.07.54c-16,127.61-34.82,278.36-54.94,439.23q-4.51,36-8.93,71.27l-.06.49h-.49l-294,0h-.44l-.07-.43c-48.26-301.58-81-506.09-81.7-510.57.72,4.47,33.86,208.92,82.71,510.41l-.5-.43,294-.05-.56.49q4.41-35.16,8.93-71.27C471.64,503.76,490.55,353,506.56,225.41l.48.55Z"
+            />
+            <path
+              class="cls-4"
+              d="M512,241.17H59.77a12,12,0,0,1-11.94-11.94h0a11.94,11.94,0,0,1,11.94-11.94H512a11.93,11.93,0,0,1,11.94,11.94h0A11.94,11.94,0,0,1,512,241.17Z"
+            />
+            <path
+              class="cls-2"
+              d="M512,241.17a19.91,19.91,0,0,0,2.5-.32,12.08,12.08,0,0,0,6.25-3.68,11.78,11.78,0,0,0-1.62-17.27,12.08,12.08,0,0,0-8.1-2.4l-105,.18-346.23.17a11.38,11.38,0,1,0,.12,22.76h61l91.92,0,155.66.12,104.94.17,28.53.11,7.42.05c1.67,0,2.53.06,2.53.06s-.86,0-2.53.06l-7.42.05-28.53.11-104.94.18-155.66.12-91.92,0h-61a12.51,12.51,0,1,1-.12-25l346.23.17,105,.18a12.41,12.41,0,0,1,8.33,2.53A12,12,0,0,1,514.47,241a11.21,11.21,0,0,1-1.88.21C512.16,241.18,512,241.17,512,241.17Z"
+            />
+            <g id="button-reserver">
+              <rect
+                id="bg-button"
+                class="cls-8"
+                x="165.1"
+                y="422.08"
+                width="249.11"
+                height="94.91"
+                rx="22.1"
+              />
+              <rect
+                class="cls-9"
+                x="162.71"
+                y="411.62"
+                width="253.9"
+                height="115.83"
+              />
+              <text class="cls-10" transform="translate(186.61 481)">
+                réserver
+              </text>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section id="cinema">
+      <div>
+        <img src="./public/assets/images/logo-white-2.png" alt="" />
+        <div
+          id="player-event"
+          onmouseenter="player.play()"
+          onmouseleave="player.stop()"
+        >
+          <lottie-player
+            id="player"
+            src="https://assets3.lottiefiles.com/packages/lf20_AepHZT.json"
+            background="transparent"
+            speed="1"
+            style="width: 400px; height: 600px"
+          ></lottie-player>
+        </div>
+      </div>
+      <ul>
+        <li><a href="#">mentions légales</a></li>
+        <li><a href="#">cgu</a></li>
+        <li><a href="#">cgv</a></li>
+      </ul>
+      <p>Fait par Natch0s<br />pour le Concours #8 : développement créatif</p>
+    </section>
+    
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
+    <!-- Gsap -->
+    <script src="./public/assets/js/gsap.js"></script>
+    <!-- navbar -->
+    <script src="./public/assets/js/navbar.js"></script>
+    <!-- back to top -->
+    <script src="./public/assets/js/back-to-top.js"></script>
+    <!-- accordion -->
+    <script src="./public/assets/js/accordion.js"></script>
+    <!-- Mouse move images -->
+    <script src="./public/assets/js/mouse-move-images.js"></script>
+  </body>
+</html>
