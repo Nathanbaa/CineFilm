@@ -19,11 +19,15 @@
       href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script
+      defer
+      src="https://unpkg.com/@lottiefiles/lottie-player@2.0.12/dist/lottie-player.js"
+    ></script>
     <link rel="stylesheet" href="./public/assets/css/styles.css" />
   </head>
   <body>
-    <div class="loader">
+    <a class="skip-link" href="#accueil">Aller au contenu</a>
+    <div class="loader" aria-hidden="true">
       <div class="img">
         <img src="./public/assets/images/affiches/batman.webp" alt="" />
       </div>
@@ -47,15 +51,12 @@
       </div>
     </div>
     <div class="overlay">
-      <div>
-        <img
-          src="./public/assets/images/logo-white-2.png"
-          alt="cinefilm logo"
-        />
-        <a href="#" id="enter-btn">Visiter</a>
+      <div class="overlay__inner">
+        <img src="./public/assets/images/logo-white-2.png" alt="CinéFilm" />
+        <button type="button" id="enter-btn">Visiter</button>
       </div>
     </div>
-    <div id="back-to-top">
+    <button type="button" id="back-to-top" aria-label="Revenir en haut de page">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="32"
@@ -67,30 +68,20 @@
           d="M215.39,163.06A8,8,0,0,1,208,168H48a8,8,0,0,1-5.66-13.66l80-80a8,8,0,0,1,11.32,0l80,80A8,8,0,0,1,215.39,163.06Z"
         ></path>
       </svg>
-    </div>
+    </button>
 
-    <header id="header" role="heading">
-      <nav>
+    <header id="header" class="site-header">
+      <nav aria-label="Navigation principale">
         <img
+          class="logo"
           src="./public/assets/images/logo-dark.png"
-          alt="cinefilm logo dark"
+          alt="CinéFilm"
+          width="190"
+          height="52"
         />
-        <ul>
+        <ul id="primary-nav">
           <li class="list-item">
-            <a href="#accueil"
-              >Accueil<svg
-                class="navbar-hover"
-                style="position: absolute; top: 25px; left: 1px"
-                width="90%"
-                height="110"
-              >
-                <path
-                  d="M 0 0 C 0 8 200 -1 125 0"
-                  fill="none"
-                  stroke="#FF725E"
-                  stroke-width="3"
-                /></svg
-            ></a>
+            <a href="#accueil">Accueil</a>
           </li>
           <li class="list-item">
             <a href="#horaires">Horaires</a>
@@ -102,18 +93,24 @@
             <a href="#billetterie">Billetterie</a>
           </li>
         </ul>
-        <div class="nav__icon">
+        <button
+          type="button"
+          class="nav__icon"
+          aria-controls="primary-nav"
+          aria-expanded="false"
+          aria-label="Ouvrir le menu"
+        >
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
       </nav>
     </header>
 
     <section id="accueil">
       <div class="card">
         <div class="card-header">
-          <span
+          <span class="pin" aria-hidden="true"
             ><svg
               xmlns="http://www.w3.org/2000/svg"
               width="60"
@@ -133,21 +130,36 @@
             <h2>Ouvert 7j/7 !</h2>
           </div>
         </div>
-        <div>
-          <img src="./public/assets/images/cinema.webp" alt="" />
+        <div class="card-media">
+          <img
+            src="./public/assets/images/cinema.webp"
+            alt="La façade du cinéma CinéFilm, à Bayeux"
+            width="640"
+            height="480"
+          />
         </div>
       </div>
 
-      <div class="pictures">
-        <img src="./public/assets/images/cinema-neuf.webp" alt="" />
-        <img src="./public/assets/images/salles-confort.webp" alt="" />
+      <div class="pictures" aria-hidden="true">
+        <img
+          src="./public/assets/images/cinema-neuf.webp"
+          alt=""
+          width="310"
+          height="440"
+        />
+        <img
+          src="./public/assets/images/salles-confort.webp"
+          alt=""
+          width="310"
+          height="440"
+        />
+        <img src="./public/assets/images/thumb-2.png" alt="" id="thumb" />
       </div>
-      <img src="./public/assets/images/thumb-2.png" alt="" id="thumb" />
     </section>
 
     <!-- Scrolling text -->
     <div class="container-fluid">
-      <div class="bandeau" id="horaires">
+      <div class="bandeau" id="horaires" aria-hidden="true">
         <div class="txt t1">
           Le Programme - <b>Le Programme</b> - Le Programme -
           <b>Le Programme</b> - Le Programme - <b>Le Programme</b> - Le
@@ -171,8 +183,7 @@
             <div class="card-film">
               <img
                 src="./public/assets/images/films/01-en-salle/elementaire.webp"
-                alt="image film"
-                loading="lazy"
+                alt="Affiche du film Élémentaire"
                 loading="lazy"
               />
               <div class="description-film">
@@ -182,7 +193,7 @@
                     <h3>Élémentaire</h3>
                     <h4>Animation, famille (1h49)</h4>
                   </div>
-                  <select name="select" class="select-option">
+                  <select name="select" class="select-option" aria-label="Choisir le jour">
                     <option value="">Aujourd'hui</option>
                     <option value="today">Aujourd'hui</option>
                     <option value="tomorrow">Demain</option>
@@ -193,6 +204,7 @@
                     <p>
                       17:00
                       <svg
+                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
@@ -212,7 +224,7 @@
             <div class="card-film">
               <img
                 src="./public/assets/images/films/01-en-salle/asteroid_city.webp"
-                alt="image film"
+                alt="Affiche du film Astéroid City"
                 loading="lazy"
               />
               <div class="description-film">
@@ -222,7 +234,7 @@
                     <h3>Astéroid City</h3>
                     <h4>Comédie dramatique (1h44)</h4>
                   </div>
-                  <select name="select" class="select-option">
+                  <select name="select" class="select-option" aria-label="Choisir le jour">
                     <option value="">Aujourd'hui</option>
                     <option value="today">Aujourd'hui</option>
                     <option value="tomorrow">Demain</option>
@@ -233,6 +245,7 @@
                     <p>
                       17:00
                       <svg
+                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
@@ -250,6 +263,7 @@
                     <p>
                       17:00
                       <svg
+                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
@@ -267,6 +281,7 @@
                     <p>
                       17:00
                       <svg
+                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
@@ -284,6 +299,7 @@
                     <p>
                       17:00
                       <svg
+                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
@@ -301,6 +317,7 @@
                     <p>
                       17:00
                       <svg
+                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
@@ -318,6 +335,7 @@
                     <p>
                       21:00
                       <svg
+                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
@@ -337,17 +355,17 @@
             <div class="card-film">
               <img
                 src="./public/assets/images/films/01-en-salle/indiana_jones_et_le_cadran_de_la_destinee.webp"
-                alt="image film"
+                alt="Affiche du film Indiana Jones et le Cadran de la Destinée"
                 loading="lazy"
               />
               <div class="description-film">
                 <div class="header-film">
                   <div>
                     <span class="badge-new">nouveau</span>
-                    <h3>Indiana Jones et le...</h3>
+                    <h3>Indiana Jones et le Cadran de la Destinée</h3>
                     <h4>Action (2h34)</h4>
                   </div>
-                  <select name="select" class="select-option">
+                  <select name="select" class="select-option" aria-label="Choisir le jour">
                     <option value="">Aujourd'hui</option>
                     <option value="today">Aujourd'hui</option>
                     <option value="tomorrow">Demain</option>
@@ -358,6 +376,7 @@
                     <p>
                       17:00
                       <svg
+                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
@@ -375,6 +394,7 @@
                     <p>
                       21:00
                       <svg
+                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
@@ -394,17 +414,17 @@
             <div class="card-film">
               <img
                 src="./public/assets/images/films/01-en-salle/spider_man_across_the_spider_verse.webp"
-                alt="image film"
+                alt="Affiche du film Spider-Man: Across the Spider-Verse"
                 loading="lazy"
               />
               <div class="description-film">
                 <div class="header-film">
                   <div>
                     <span class="badge-new">nouveau</span>
-                    <h3>Spider-Man: Across t..</h3>
+                    <h3>Spider-Man: Across the Spider-Verse</h3>
                     <h4>Action, famille (2h20)</h4>
                   </div>
-                  <select name="select" class="select-option">
+                  <select name="select" class="select-option" aria-label="Choisir le jour">
                     <option value="">Aujourd'hui</option>
                     <option value="today">Aujourd'hui</option>
                     <option value="tomorrow">Demain</option>
@@ -415,6 +435,7 @@
                     <p>
                       17:00
                       <svg
+                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
@@ -432,6 +453,7 @@
                     <p>
                       21:00
                       <svg
+                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
@@ -451,7 +473,7 @@
             <div class="card-film">
               <img
                 src="./public/assets/images/films/01-en-salle/the_flash.webp"
-                alt="image film"
+                alt="Affiche du film The Flash"
                 loading="lazy"
               />
               <div class="description-film">
@@ -461,7 +483,7 @@
                     <h3>The Flash</h3>
                     <h4>Action (2h24)</h4>
                   </div>
-                  <select name="select" class="select-option">
+                  <select name="select" class="select-option" aria-label="Choisir le jour">
                     <option value="">Aujourd'hui</option>
                     <option value="today">Aujourd'hui</option>
                     <option value="tomorrow">Demain</option>
@@ -472,6 +494,7 @@
                     <p>
                       17:00
                       <svg
+                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
@@ -489,6 +512,7 @@
                     <p>
                       21:00
                       <svg
+                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
@@ -516,7 +540,7 @@
             <div class="card-film">
               <img
                 src="./public/assets/images/films/flightclub.jpg"
-                alt="image film"
+                alt="Affiche du film Titre du Film"
                 loading="lazy"
               />
               <div class="description-film">
@@ -527,7 +551,7 @@
                     <h3>Titre du Film</h3>
                     <h4>Comédie, famille (1h21)</h4>
                   </div>
-                  <select name="select" class="select-option">
+                  <select name="select" class="select-option" aria-label="Choisir le jour">
                     <option value="">Aujourd'hui</option>
                     <option value="today">Aujourd'hui</option>
                     <option value="tomorrow">Demain</option>
@@ -538,6 +562,7 @@
                     <p>
                       17:00
                       <svg
+                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
@@ -555,6 +580,7 @@
                     <p>
                       21:00
                       <svg
+                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
@@ -582,7 +608,7 @@
             <div class="card-film">
               <img
                 src="./public/assets/images/films/flightclub.jpg"
-                alt="image film"
+                alt="Affiche du film Titre du Film"
                 loading="lazy"
               />
               <div class="description-film">
@@ -593,7 +619,7 @@
                     <h3>Titre du Film</h3>
                     <h4>Comédie, famille (1h21)</h4>
                   </div>
-                  <select name="select" class="select-option">
+                  <select name="select" class="select-option" aria-label="Choisir le jour">
                     <option value="">Aujourd'hui</option>
                     <option value="today">Aujourd'hui</option>
                     <option value="tomorrow">Demain</option>
@@ -604,6 +630,7 @@
                     <p>
                       17:00
                       <svg
+                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
@@ -621,6 +648,7 @@
                     <p>
                       21:00
                       <svg
+                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
@@ -647,7 +675,7 @@
           <div class="underline"></div>
           <div class="infos">
             <div class="card-info">
-              <span class="icon"
+              <span class="icon" aria-hidden="true"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -662,7 +690,7 @@
               <p>Accès PMR</p>
             </div>
             <div class="card-info">
-              <span class="icon"
+              <span class="icon" aria-hidden="true"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -677,7 +705,7 @@
               <p>Parking (payant)</p>
             </div>
             <div class="card-info">
-              <span class="icon"
+              <span class="icon" aria-hidden="true"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -692,7 +720,7 @@
               <p>Wifi gratuit</p>
             </div>
             <div class="card-info">
-              <span class="icon"
+              <span class="icon" aria-hidden="true"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -707,7 +735,7 @@
               <p>Fauteuil Duo</p>
             </div>
             <div class="card-info">
-              <span class="icon"
+              <span class="icon" aria-hidden="true"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -725,8 +753,15 @@
           <div class="more-infos">
             <div class="accordion">
               <div class="accordion-item">
-                <div class="accordion-item-header"><h3>Cinéfilm Pass</h3></div>
-                <div class="accordion-item-body">
+                <button
+                  type="button"
+                  class="accordion-item-header"
+                  aria-expanded="false"
+                  aria-controls="acc-pass"
+                >
+                  <h3>Cinéfilm Pass</h3>
+                </button>
+                <div class="accordion-item-body" id="acc-pass" role="region">
                   <div class="accordion-item-body-content">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Ratione deleniti suscipit vero debitis atque, totam rerum,
@@ -736,8 +771,15 @@
                 </div>
               </div>
               <div class="accordion-item">
-                <div class="accordion-item-header"><h3>Tarifs</h3></div>
-                <div class="accordion-item-body">
+                <button
+                  type="button"
+                  class="accordion-item-header"
+                  aria-expanded="false"
+                  aria-controls="acc-tarifs"
+                >
+                  <h3>Tarifs</h3>
+                </button>
+                <div class="accordion-item-body" id="acc-tarifs" role="region">
                   <div class="accordion-item-body-content">
                     <div class="flex">
                       <h4>Moins de 14 ans</h4>
@@ -764,8 +806,15 @@
                 </div>
               </div>
               <div class="accordion-item">
-                <div class="accordion-item-header"><h3>Accès</h3></div>
-                <div class="accordion-item-body">
+                <button
+                  type="button"
+                  class="accordion-item-header"
+                  aria-expanded="false"
+                  aria-controls="acc-acces"
+                >
+                  <h3>Accès</h3>
+                </button>
+                <div class="accordion-item-body" id="acc-acces" role="region">
                   <div class="accordion-item-body-content" id="access">
                     <div>
                       <h4>En voiture :</h4>
@@ -798,8 +847,9 @@
       </div>
     </section>
 
-    <section id="popcorn">
-      <div id="billetterie">
+    <section id="popcorn" aria-label="Billetterie">
+      <div id="bandeau-popcorn" aria-hidden="true"></div>
+      <div id="billetterie" class="poster-trail" aria-hidden="true">
         <img
           class="image"
           loading="lazy"
@@ -849,10 +899,10 @@
           data-status="inactive"
           src="./public/assets/images/films/01-en-salle/the_flash.webp"
         />
+      </div>
 
-        <div id="bandeau-popcorn"></div>
-        <svg
-          id="popcorn-box"
+      <svg
+        id="popcorn-box"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 575.23 736.52"
         >
@@ -1235,35 +1285,47 @@
               </text>
             </g>
           </g>
-        </svg>
-      </div>
+      </svg>
     </section>
 
-    <section id="cinema">
-      <div>
-        <img src="./public/assets/images/logo-white-2.png" alt="" />
-        <div
-          id="player-event"
-          onmouseenter="player.play()"
-          onmouseleave="player.stop()"
-        >
-          <lottie-player
-            id="player"
-            src="https://assets3.lottiefiles.com/packages/lf20_AepHZT.json"
-            background="transparent"
-            speed="1"
-            style="width: 400px; height: 600px"
-          ></lottie-player>
-        </div>
+    <footer id="cinema" class="site-footer">
+      <img
+        class="footer-logo"
+        src="./public/assets/images/logo-white-2.png"
+        alt="CinéFilm"
+        width="350"
+        height="135"
+      />
+
+      <!-- Pinned over the screen of the background photo; the Lottie waves in
+           from the bottom edge on hover. -->
+      <div class="footer-screen" id="player-event">
+        <p class="footer-screen__text">À bientôt !</p>
+        <lottie-player
+          id="player"
+          src="https://assets3.lottiefiles.com/packages/lf20_AepHZT.json"
+          background="transparent"
+          preserveAspectRatio="xMidYMax meet"
+          speed="1"
+          loop
+        ></lottie-player>
       </div>
-      <ul>
-        <li><a href="#">mentions légales</a></li>
-        <li><a href="#">cgu</a></li>
-        <li><a href="#">cgv</a></li>
-      </ul>
-      <p>Fait par Natch0s<br />pour le Concours #8 : développement créatif</p>
-    </section>
-    
+
+      <div class="footer-bottom">
+        <nav class="footer-links" aria-label="Informations légales">
+          <ul>
+            <li><a href="#">mentions légales</a></li>
+            <li><a href="#">cgu</a></li>
+            <li><a href="#">cgv</a></li>
+          </ul>
+        </nav>
+
+        <p class="footer-credits">
+          Fait par Natch0s<br />pour le Concours #8 : développement créatif
+        </p>
+      </div>
+    </footer>
+
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
     <!-- Gsap -->
@@ -1276,5 +1338,7 @@
     <script src="./public/assets/js/accordion.js"></script>
     <!-- Mouse move images -->
     <script src="./public/assets/js/mouse-move-images.js"></script>
+    <!-- footer -->
+    <script src="./public/assets/js/footer.js"></script>
   </body>
 </html>

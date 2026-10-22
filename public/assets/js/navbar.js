@@ -1,68 +1,92 @@
-// Responsive navbar
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelector(".nav__icon").addEventListener("click", function () {
-    this.classList.toggle("active");
-    document.querySelector("nav ul").classList.toggle("active");
-    if (document.querySelector("nav ul").classList.contains("active")) {
-      document.querySelector("nav ul").style.display = "block";
-    } else {
-      document.querySelector("nav ul").style.display = "none";
+/**
+ * Responsive navigation.
+ *
+ * The menu is opened/closed with a single `data-nav-open` flag on the header —
+ * the stylesheet owns the layout, so there are no inline `display` values left
+ * to fight the media queries on resize.
+ */
+(function () {
+  const header = document.getElementById("header");
+  if (!header) return;
+
+  const toggle = header.querySelector(".nav__icon");
+  const list = header.querySelector("nav ul");
+  const links = Array.from(header.querySelectorAll("nav ul a"));
+  if (!toggle || !list) return;
+
+  const setOpen = (open) => {
+    header.dataset.navOpen = String(open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+  };
+
+  setOpen(false);
+
+  toggle.addEventListener("click", () => {
+    setOpen(header.dataset.navOpen !== "true");
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && header.dataset.navOpen === "true") {
+      setOpen(false);
+      toggle.focus();
     }
   });
 
-  window.addEventListener("load", function () {
-    adjustNavigation();
+  // --- Hand-drawn underline on the current section ---
+  const underline = () => {
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("class", "navbar-hover");
+    svg.setAttribute("viewBox", "0 0 130 12");
+    svg.setAttribute("preserveAspectRatio", "none");
+    svg.setAttribute("aria-hidden", "true");
+
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", "M 2 8 C 40 2 90 10 128 3");
+    path.setAttribute("fill", "none");
+    path.setAttribute("stroke", "#FF725E");
+    path.setAttribute("stroke-width", "3");
+    path.setAttribute("stroke-linecap", "round");
+    svg.appendChild(path);
+    return svg;
+  };
+
+  const markActive = (link) => {
+    header.querySelectorAll(".navbar-hover").forEach((el) => el.remove());
+    link.appendChild(underline());
+  };
+
+  const sections = links
+    .map((link) => {
+      const id = link.getAttribute("href");
+      const target = id && id.startsWith("#") ? document.querySelector(id) : null;
+      return target ? { link, target } : null;
+    })
+    .filter(Boolean);
+
+  sections.forEach(({ link, target }) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      markActive(link);
+      setOpen(false);
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", link.getAttribute("href"));
+    });
   });
 
-  window.addEventListener("resize", function () {
-    adjustNavigation();
-  });
-
-  function adjustNavigation() {
-    var w = window.innerWidth;
-    var h = window.innerHeight;
-    var x = 700;
-    if (w >= x) {
-      document.querySelector("nav ul").style.display = "flex";
-      document.querySelector("nav ul").style.height = "auto";
-    } else {
-      document.querySelector("nav ul").style.display = "none";
-      document.querySelector("nav ul").style.height = h + "px";
-    }
+  // Keep the underline in sync with whatever section is actually on screen.
+  if ("IntersectionObserver" in window && sections.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        const match = sections.find(({ target }) => target === visible.target);
+        if (match) markActive(match.link);
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
+    );
+    sections.forEach(({ target }) => observer.observe(target));
   }
-});
-
-// Hover effect
-const listItems = document.querySelectorAll(".list-item");
-const svgCode =
-  '<svg class="navbar-hover" style="position: absolute; top:25px; left:1px" width="90%" height="110"><path d="M 0 0 C 0 8 200 -1 125 0" fill="none" stroke="#FF725E" stroke-width="3"/></svg>';
-let activeSvg = null;
-let isDefaultSvgRemoved = false;
-
-listItems.forEach((listItem) => {
-  const link = listItem.querySelector("a");
-  link.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    if (!isDefaultSvgRemoved) {
-      const defaultSvg = document.querySelector(".list-item:first-child svg");
-      defaultSvg.remove();
-      isDefaultSvgRemoved = true;
-    }
-
-    if (activeSvg) {
-      activeSvg.remove();
-    }
-
-    const svgElement = document.createElement("div");
-    svgElement.innerHTML = svgCode;
-    activeSvg = svgElement.firstElementChild;
-
-    link.appendChild(activeSvg);
-
-    // Scroll vers l'ancre
-    const targetId = link.getAttribute("href");
-    const targetElement = document.querySelector(targetId);
-    targetElement.scrollIntoView({ behavior: "smooth" });
-  });
-});
+})();

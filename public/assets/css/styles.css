@@ -1,240 +1,365 @@
+@import url("https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap");
+
 :root {
   /* colors */
   --white: #ececec;
   --red: #ff725e;
   --black: #444443;
+  --ink: #2b2b2a;
+  --paper: #fff;
+  --line: #c9c9c7;
 
   /* typos */
-  --main-font: Bowlby-One;
+  --main-font: Bowlby-One, "Arial Black", sans-serif;
+  --body-font: "Agdasima", "Arial Narrow", sans-serif;
+
+  /* layout */
+  --gutter: clamp(1.25rem, 6vw, 8rem);
+  --header-h: 80px;
+
+  /* cursors */
+  --cursor-default: url("../images/cursor-arrow.png") 8 6, auto;
+  --cursor-pointer: url("../images/cursor-hand.png") 16 5, pointer;
+  --cursor-camera: url("../images/cursor-camera.png") 22 22, crosshair;
+
+  /* stacking order, kept in one place so sections stop fighting each other */
+  --z-poster: 10;
+  --z-popcorn-box: 30;
+  --z-back-to-top: 90;
+  --z-header: 100;
+  /* the popcorn band deliberately scrolls over the navbar */
+  --z-bandeau: 110;
+  --z-loader: 998;
+  --z-overlay: 999;
 }
 
 /* --- FONTS --- */
 @font-face {
   font-family: Bowlby-One;
-  src: url(../fonts/Bowlby_One/BowlbyOne-Regular.ttf);
+  src: url(../fonts/Bowlby_One/BowlbyOne-Regular.ttf) format("truetype");
+  font-display: swap;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap");
-
 /* --- Reset --- */
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* width/height attributes are there to reserve space before load; they must
+   not win over the CSS aspect ratios below */
+img[width][height] {
+  height: auto;
+}
+
 /* --- all --- */
-html,
+html {
+  scroll-behavior: smooth;
+  /* keep anchor targets clear of the fixed header */
+  scroll-padding-top: calc(var(--header-h) + 1rem);
+}
+
 body {
   background-color: var(--white);
-  cursor: url("../images/cursor-fill.png"), auto;
-  scroll-behavior: smooth;
+  color: var(--black);
+  font-family: var(--body-font);
   scrollbar-color: var(--red) var(--white);
   scrollbar-width: thin;
 }
 
-/* width */
+/* The custom cursors are decorative: only hand them to real pointing devices,
+   and never to people who asked for less visual noise. */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: var(--cursor-default);
+  }
+
+  a,
+  button,
+  select,
+  summary,
+  [role="button"],
+  .accordion-item-header,
+  .card-horaire,
+  #back-to-top {
+    cursor: var(--cursor-pointer);
+  }
+}
+
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 0px;
+  width: 8px;
+  height: 8px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-  background: var(--bg-white);
+  background: var(--white);
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--red);
   border-radius: 5px;
+}
+
+::selection {
+  background: var(--red);
+  color: #fff;
 }
 
 li {
   list-style: none;
 }
 
-p {
-  font-family: "Agdasima", sans-serif;
+h1,
+h2,
+h3 {
+  font-family: var(--main-font);
+  color: var(--black);
+  font-weight: 400;
+  line-height: 1.15;
 }
 
-a:hover {
-  cursor: url("../images/hand-pointing-fill.png"), auto;
+a {
+  color: inherit;
 }
 
+:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: calc(var(--z-overlay) + 1);
+  transform: translateY(-200%);
+  background: var(--ink);
+  color: var(--white);
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  font-family: var(--main-font);
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
+/* --- Back to top --- */
 #back-to-top {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
   background-color: var(--red);
-  padding: 11px 15px;
   border: 2px solid var(--white);
-  border-radius: 55px;
-  font-family: var(--main-font);
-  z-index: 5;
+  border-radius: 50%;
+  color: var(--white);
+  z-index: var(--z-back-to-top);
   opacity: 0;
-  transition: ease-in 0.3s;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+#back-to-top svg {
+  fill: currentColor;
 }
 
 #back-to-top.show {
   opacity: 1;
   visibility: visible;
-}
-
-#back-to-top:hover {
-  cursor: url("../images/hand-pointing-fill.png"), auto;
+  transform: none;
 }
 
 .flex {
   display: flex;
   flex-direction: row;
+  align-items: baseline;
   justify-content: space-between;
+  gap: 0.75rem;
 }
 
 .dotted {
-  margin-top: 1rem;
-  width: 70%;
+  flex: 1;
   border-top: 1px dashed var(--black);
+  transform: translateY(-0.25em);
 }
 
 /* --- Loader --- */
 .loader {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
   clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
-  z-index: 55;
+  z-index: var(--z-loader);
 }
 
 .loader .img {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
   clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+}
+
+.loader .img img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
 /* --- Welcome Page --- */
 .overlay {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: var(--gutter);
   background-image: url(../images/bg-loader.webp);
+  background-size: cover;
+  background-position: center;
   color: #fff;
-  display: flex;
   clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
-  z-index: 999;
+  z-index: var(--z-overlay);
 }
 
-.overlay div {
+/* The welcome artwork is busy white-on-grey; this scrim is what makes the
+   logo and the button readable on top of it. */
+.overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(20, 20, 20, 0.82) 0%,
+    rgba(20, 20, 20, 0.6) 55%,
+    rgba(20, 20, 20, 0.35) 100%
+  );
+}
+
+.overlay__inner {
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
-  margin: auto auto;
-  z-index: 5;
+  align-items: center;
+  gap: 2.5rem;
+  text-align: center;
 }
 
 .overlay img {
-  width: 350px;
+  width: min(350px, 70vw);
+  height: auto;
 }
 
 #enter-btn {
   background-color: var(--white);
   color: var(--black);
-  margin: 0 auto;
-  width: 15rem;
-  font-size: 30px;
-  padding: 1rem;
-  margin-top: 3rem;
-  border: 4px solid #ff725e;
+  min-width: 15rem;
+  font-size: clamp(1.25rem, 4vw, 1.875rem);
+  padding: 1rem 2rem;
+  border: 4px solid var(--red);
   border-radius: 25px;
   text-decoration: none;
   font-family: var(--main-font);
   text-align: center;
-  transition: ease-in-out 0.3s;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-#enter-btn:hover {
-  /* transition: all 0.3s; */
-  transition: ease-in-out 0.3s;
+#enter-btn:hover,
+#enter-btn:focus-visible {
   background-color: var(--red);
-  /* color: var(--white); */
-}
-
-.container {
-  padding-right: 50px;
-  padding-left: 50px;
-  margin-right: auto;
-  margin-left: auto;
+  color: #fff;
 }
 
 /* --- navbar --- */
-header {
+.site-header {
   position: fixed;
+  inset: 0 0 auto 0;
   background: var(--white);
-  width: 100%;
   border-bottom: 1px solid var(--black);
-  z-index: 1;
+  z-index: var(--z-header);
 }
 
-header nav ul li a {
-  position: relative;
-  background: transparent;
-  margin: 0;
-  padding: 0;
-  font-size: 20px;
-  font-family: var(--main-font);
-  vertical-align: baseline;
-  text-decoration: none;
-}
-
-nav ul li {
-  margin-left: 2rem;
-}
-
-nav {
-  max-width: 1180px;
-  height: 80px;
-  margin: 0px auto;
-  display: -webkit-flex;
+.site-header nav {
   display: flex;
-  -ms-align-items: center;
   align-items: center;
+  gap: 1rem;
+  max-width: 1180px;
+  min-height: var(--header-h);
+  margin: 0 auto;
+  padding: 0 1.25rem;
 }
 
-header nav img {
-  margin-left: 0px;
+.site-header .logo {
+  width: clamp(120px, 18vw, 190px);
+  height: auto;
   margin-right: auto;
 }
 
-header nav ul {
-  display: -webkit-flex;
+.site-header nav ul {
   display: flex;
-  list-style: none;
+  align-items: center;
 }
 
-header nav > .active {
+.site-header nav ul li + li {
+  margin-left: clamp(0.25rem, 2vw, 2rem);
+}
+
+.site-header nav ul li a {
+  position: relative;
   display: block;
-}
-
-nav ul li a {
-  color: var(--black);
-  margin: 0px 10px;
   padding: 10px;
   border-radius: 5px;
+  color: var(--black);
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-family: var(--main-font);
+  text-decoration: none;
 }
 
-.nav__icon,
-.nav__icon span {
-  display: none;
+/* The hand-drawn underline is injected by navbar.js on the active link. */
+.navbar-hover {
+  position: absolute;
+  top: 1.9em;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  overflow: visible;
+  pointer-events: none;
 }
 
+/* --- burger --- */
 .nav__icon {
+  display: none;
   width: 36px;
   height: 28px;
-  margin-right: 10px;
   position: relative;
-  cursor: pointer;
+  background: none;
+  border: 0;
+  flex: 0 0 auto;
 }
 
 .nav__icon span {
@@ -244,6 +369,7 @@ nav ul li a {
   width: 100%;
   height: 4px;
   border-radius: 4px;
+  transition: transform 0.3s ease, opacity 0.2s ease;
 }
 
 .nav__icon span:nth-of-type(1) {
@@ -258,51 +384,52 @@ nav ul li a {
   bottom: 0;
 }
 
-.nav__icon.active span:nth-of-type(1) {
-  -webkit-transform: translateY(12px) rotate(-45deg);
+.nav__icon[aria-expanded="true"] span:nth-of-type(1) {
   transform: translateY(12px) rotate(-45deg);
 }
 
-.nav__icon.active span:nth-of-type(2) {
-  display: none;
+.nav__icon[aria-expanded="true"] span:nth-of-type(2) {
+  opacity: 0;
 }
 
-.nav__icon.active span:nth-of-type(3) {
-  -webkit-transform: translateY(-12px) rotate(45deg);
+.nav__icon[aria-expanded="true"] span:nth-of-type(3) {
   transform: translateY(-12px) rotate(45deg);
 }
 
 /* --- Hero Section --- */
-
 #accueil {
-  display: flex;
-  padding-top: 10%;
-  margin: 0 8%;
-  margin-bottom: 10%;
-  height: 100vh;
+  /* the arm slides in from off-screen, so clip rather than let it push the
+     page sideways while the entrance animation runs */
+  overflow-x: clip;
+  display: grid;
+  grid-template-columns: minmax(0, 520px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding: calc(var(--header-h) + clamp(2rem, 6vw, 5rem)) var(--gutter)
+    clamp(3rem, 8vw, 6rem);
 }
 
 .card {
   border: 2px solid var(--black);
   border-radius: 5px;
-  width: 500px;
+  background: var(--white);
+  width: 100%;
   height: fit-content;
 }
 
 .card-header {
   display: flex;
-  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
   padding: 1.5rem;
 }
 
-.card-header span {
-  margin-left: 5%;
+.card-header .pin {
+  flex: 0 0 auto;
 }
 
 .card-header h1 {
-  font-family: var(--main-font);
-  font-size: 30px;
-  color: var(--black);
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
   text-transform: uppercase;
 }
 
@@ -311,59 +438,85 @@ nav ul li a {
 }
 
 .card-header h2 {
-  font-family: "Agdasima", sans-serif;
-  color: var(--black);
-}
-
-.card-header p {
-  color: var(--black);
+  font-family: var(--body-font);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
 }
 
 .divider {
   width: 5rem;
   height: 2px;
   background-color: var(--black);
+  margin: 0.6rem 0;
 }
 
-.card div img {
+.card > .card-media {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.card .card-media img {
   width: 100%;
-  object-fit: content;
-  padding: 0 1.5rem 1.5rem 1.5rem;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+/* Decorative polaroids — they live inside their own box so they can never
+   hang off the right edge of the page. */
+.pictures {
+  /* one shared card width: the two polaroids are offset by a multiple of it,
+     so the gap between them never depends on the column width */
+  --card-w: min(310px, 46%);
+
+  position: relative;
+  align-self: stretch;
+  /* tall enough that the arm below clears the bottom of the polaroids instead
+     of cutting across their captions */
+  min-height: clamp(420px, 54vw, 790px);
 }
 
 .pictures img {
   position: absolute;
+  width: var(--card-w);
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.18));
+  opacity: 0;
+  animation: apparition2 0.6s ease-out forwards;
 }
 
 .pictures img:nth-child(1) {
-  right: 8%;
-  opacity: 0;
+  top: 2%;
+  right: 2%;
   rotate: 5deg;
-  animation: apparition2 0.5s ease-out forwards;
 }
 
 .pictures img:nth-child(2) {
   top: 30%;
-  right: 23%;
+  /* a full card to the left, plus a margin: the rotations make the two tilt
+     into each other, and only the blank edge of the card behind is covered —
+     never its caption */
+  right: calc(2% + var(--card-w) * 1.08);
   rotate: -10deg;
-  opacity: 0;
-  animation: apparition2 1s ease-out forwards;
+  animation-duration: 1s;
 }
 
+/* Reaches past the section's gutter so the arm comes in from the very edge of
+   the page, and never grows past the artwork's own 499px. */
 #thumb {
   position: absolute;
-  right: 0px;
-  bottom: 8%;
+  right: calc(var(--gutter) * -1);
+  bottom: 0;
+  width: min(499px, 38vw);
+  height: auto;
   opacity: 0;
-  rotate: 0deg;
-  transform: translateY(10px) translateX(100%);
+  transform: translate(60%, 10px);
   animation: apparition 1.5s ease-out forwards;
 }
 
 @keyframes apparition {
   100% {
     opacity: 1;
-    transform: none;
+    transform: translate(0, 0);
   }
 }
 
@@ -374,307 +527,290 @@ nav ul li a {
 }
 
 /* --- scrolling bandeau --- */
-
-.border {
-  background-color: var(--blackesc);
-  height: 4px;
-}
-
 .bandeau {
   display: flex;
   overflow: hidden;
   width: 100%;
-  position: relative;
-  top: 120%;
-  transform: translateY(-50%);
   border-top: 1px solid var(--black);
   border-bottom: 1px solid var(--black);
   background-color: var(--white);
-  z-index: 2;
+  user-select: none;
 }
 
 .txt {
   white-space: nowrap;
-  font-size: 70px;
-  padding: 50px 0;
+  font-size: clamp(2rem, 6vw, 4.375rem);
+  padding: clamp(1rem, 3vw, 3.125rem) 0;
   animation: scrollTxt 25s linear infinite;
   font-family: var(--main-font);
   text-transform: uppercase;
+  -webkit-text-stroke: 1px var(--black);
+  color: var(--white);
 }
 
-.txt b,
-.t1 b,
-.t2 b {
+.txt b {
   color: var(--red);
-  -webkit-text-stroke: hidden;
-}
-
-.txt::selection,
-.txt b::selection {
-  color: none;
-  background: none;
-}
-
-.txt::-moz-selection,
-.txt b::-moz-selection {
-  color: none;
-  background: none;
-}
-
-.txt img::selection {
-  color: none;
-  background: none;
-}
-
-.t1 {
-  /* color: var(--redesc); */
-  -webkit-text-stroke: 1px var(--black);
-  color: var(--white);
-}
-
-.t2 {
-  /* color: var(--redesc); */
-  -webkit-text-stroke: 1px var(--black);
-  color: var(--white);
+  -webkit-text-stroke: 0;
+  font-weight: inherit;
 }
 
 @keyframes scrollTxt {
-  0% {
-    transform: translate(0, 0);
+  from {
+    transform: translateX(0);
   }
-
-  100% {
-    transform: translate(-100%, 0);
+  to {
+    transform: translateX(-100%);
   }
 }
 
-/* --- List Films --- */
+/* --- Programme + infos pratiques --- */
 #programme {
-  margin: 0 8% 0 8%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  /* two real columns — the old flex-wrap pushed the right column below the
+     left one and left a 1800px hole in the page */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+  gap: clamp(2rem, 5vw, 4rem);
+  padding: clamp(3rem, 8vw, 6rem) var(--gutter);
+  align-items: start;
 }
 
 #programme .left {
-  height: fit-content;
-  border-right: 1px solid var(--black);
-  padding-right: 2rem;
+  border-right: 1px solid var(--line);
+  padding-right: clamp(1rem, 3vw, 2.5rem);
 }
 
-#programme .left > div {
-  margin: 20% 0;
+#programme .left > div + div {
+  margin-top: clamp(3rem, 7vw, 6rem);
 }
 
 #programme h2 {
-  font-family: var(--main-font);
-  color: var(--black);
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
   text-transform: uppercase;
 }
 
-.separator {
-  height: 1px;
-  width: 40%;
-  background-color: var(--black);
-  margin-bottom: 2rem;
-}
-
-.card-film {
-  display: flex;
-  margin-bottom: 2rem;
-}
-
-.card-film img {
-  width: 150px;
-  object-fit: cover;
-}
-
-.card-film .header-film {
-  display: flex;
-  justify-content: space-between;
-  width: 25vw;
-}
-
-.header-film select {
-  margin-left: 10rem;
-  padding: 5px 2rem 0 0;
-  border: none;
-  border-bottom: 2px solid var(--red);
-  color: var(--black);
-  background-color: inherit;
-  text-transform: uppercase;
-  font-family: "Agdasima", sans-serif;
-  font-weight: 600;
-  transition: ease-in 0.3s;
-}
-
-.header-film select:hover {
-  transition: ease-in 0.3s;
-  cursor: url("../images/hand-pointing-fill.png"), auto;
-  letter-spacing: 2px;
-}
-
-.description-film {
-  padding-left: 2rem;
-}
-
-.badge-new {
-  background-color: var(--red);
-  color: var(--white);
-  padding: 2px 10px;
-  border-radius: 5px;
-  font-family: var(--main-font);
-  font-size: 11px;
-  margin-right: 0.5rem;
-  text-transform: uppercase;
-}
-
-.badge-warning {
-  background-color: var(--black);
-  color: var(--white);
-  padding: 2px 5px;
-  border-radius: 5px;
-  font-family: var(--main-font);
-  font-size: 11px;
-}
-
-.description-film h3 {
-  margin-top: 1rem;
-  font-size: 18px;
-  font-family: var(--main-font);
-  font-weight: 300;
-  color: var(--black);
-  text-transform: capitalize;
-}
-
-.description-film h4 {
-  font-size: 15px;
-  font-family: "Agdasima", sans-serif;
-  color: var(--black);
-}
-
-.horaires {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  margin-top: 3rem;
-  width: 50vh;
-  overflow-y: scroll;
-}
-
-.card-horaire {
-  border: 2px dashed var(--black);
-  border-radius: 10px;
-  background-color: white;
-  padding: 20px 30px;
-  margin: 0 10px 1rem 0;
-}
-
-.card-horaire:hover {
-  border: 2px solid var(--black);
-  cursor: url("../images/hand-pointing-fill.png"), auto;
-}
-
-.right {
-  height: 200vh;
-  z-index: 0;
-}
-
-#infos-pratiques {
-  position: sticky !important;
-  position: -webkit-sticky !important;
-  width: 40vw;
-  height: 5vh;
-  top: 180px;
-}
-
-#infos-pratiques h2 {
-  font-family: var(--main-font);
-  color: var(--black);
-  text-align: center;
-}
-
+.separator,
 .underline {
   height: 1px;
   width: 40%;
   background-color: var(--black);
-  margin-bottom: 2rem;
-  margin: 0 auto;
+  margin: 0.75rem 0 2rem;
+}
+
+.underline {
+  margin-inline: auto;
+}
+
+.card-film {
+  display: flex;
+  gap: clamp(1rem, 2vw, 2rem);
+  margin-bottom: 2.5rem;
+}
+
+.card-film > img {
+  flex: 0 0 auto;
+  width: clamp(110px, 12vw, 150px);
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--line);
+}
+
+.description-film {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-film .header-film {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+}
+
+.header-film select {
+  flex: 0 0 auto;
+  padding: 5px 0.5rem 2px 0;
+  border: none;
+  border-bottom: 2px solid var(--red);
+  color: var(--black);
+  background-color: transparent;
+  text-transform: uppercase;
+  font-family: var(--body-font);
+  font-size: 1rem;
+  font-weight: 700;
+  transition: letter-spacing 0.3s ease-in;
+}
+
+.header-film select:hover {
+  letter-spacing: 1px;
+}
+
+.badge-new,
+.badge-warning {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 5px;
+  color: var(--white);
+  font-family: var(--main-font);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.badge-new {
+  background-color: var(--red);
+  margin-right: 0.5rem;
+}
+
+.badge-warning {
+  background-color: var(--black);
+}
+
+.description-film h3 {
+  margin-top: 0.75rem;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  text-transform: capitalize;
+}
+
+.description-film h4 {
+  font-size: 1rem;
+  font-family: var(--body-font);
+  font-weight: 400;
+  color: #6f6f6d;
+}
+
+/* Horizontal strip of showtimes — scrolls on the X axis, which is what the
+   old `overflow-y` was trying (and failing) to do. */
+.horaires {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-bottom: 0.5rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+}
+
+.horaires::-webkit-scrollbar {
+  height: 6px;
+}
+
+.card-horaire {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  border: 2px dashed var(--black);
+  border-radius: 10px;
+  background-color: var(--paper);
+  padding: 0.9rem 1.4rem;
+  text-align: center;
+  transition: border-style 0.15s ease, transform 0.15s ease;
+}
+
+.card-horaire p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.card-horaire:hover {
+  border-style: solid;
+  transform: translateY(-2px);
+}
+
+/* Right column — sticky, sized by its own content. */
+.right {
+  position: sticky;
+  top: calc(var(--header-h) + 1.5rem);
+}
+
+#infos-pratiques h2 {
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .infos {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 0.75rem;
   margin: 2rem 0;
 }
 
 .card-info {
-  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--line);
   border-radius: 5px;
-  padding: 0.5rem 1.5rem;
-  margin: 0 1rem 0 1rem;
-  background-color: #ececec;
+  padding: 0.9rem 0.75rem;
+  background-color: var(--white);
   text-align: center;
-  width: 175px;
+  width: clamp(100px, 30%, 140px);
 }
 
 .card-info p {
-  padding-top: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--black);
+  line-height: 1.2;
 }
 
 /* Accordion */
 .accordion {
   width: 100%;
-  max-width: 1000px;
   margin: 2rem auto;
 }
 
 .accordion-item {
-  background-color: #fff;
+  background-color: var(--paper);
   color: #111;
   margin: 1rem 0;
   border-radius: 0.5rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+  overflow: hidden;
 }
 
 .accordion-item-header {
+  width: 100%;
   padding: 0.5rem 3rem 0.5rem 1rem;
   min-height: 3.5rem;
-  line-height: 1.25rem;
+  background: none;
+  border: 0;
+  text-align: left;
   font-weight: bold;
   display: flex;
   align-items: center;
   position: relative;
-  cursor: url("../images/hand-pointing-fill.png"), auto;
-  font-family: "Agdasima", sans-serif;
+  font-family: var(--body-font);
 }
 
 .accordion-item-header h3 {
-  color: var(--black);
-  font-size: 18px;
-  font-weight: 600;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-family: var(--body-font);
+  font-weight: 700;
 }
 
 .accordion-item-header::after {
   content: "\002B";
   font-size: 2rem;
+  line-height: 1;
   position: absolute;
   right: 1rem;
+  color: var(--red);
 }
 
-.accordion-item-header.active::after {
+.accordion-item-header[aria-expanded="true"]::after {
   content: "\2212";
 }
 
 .accordion-item-body {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.2s ease-out;
+  transition: max-height 0.25s ease-out;
 }
 
 .accordion-item-body-content {
@@ -682,180 +818,466 @@ nav ul li a {
   line-height: 1.5rem;
   border-top: 1px solid;
   border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
-  font-family: "Agdasima", sans-serif;
   color: var(--black);
 }
 
-.accordion-item-body-content .flex:nth-child(2),
-#access div:nth-child(2) {
-  margin: 1rem 0;
+.accordion-item-body-content h4 {
+  font-family: var(--body-font);
+  font-size: 1.05rem;
 }
 
-.accordion-item-body-content .flex:nth-child(3) {
-  margin-bottom: 2rem;
+.accordion-item-body-content .flex + .flex,
+#access div + div {
+  margin-top: 1rem;
 }
 
-/* --- Reserver --- */
+.accordion-item-body-content .flex:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+/* --- Réserver / popcorn --- */
 #popcorn {
   position: relative;
-  height: 150vh;
+  /* `clip` crops the poster trail without turning this into a scroll
+     container, so the sticky bandeau above keeps working. */
+  overflow: clip;
+  padding-bottom: clamp(3rem, 8vw, 6rem);
   text-align: center;
 }
 
-.image {
-  width: 8vmin;
-  position: absolute;
-  z-index: 0;
-  transform: translate(-50%, -50%);
-}
-
-.image[data-status="inactive"] {
-  display: none;
-}
-
-.image[data-status="active"] {
-  display: block;
-}
-
-#popcorn:hover {
-  transition: ease-in 0.3s;
-  cursor: url(../images/camera-cursor.png), auto;
+@media (hover: hover) and (pointer: fine) {
+  #popcorn {
+    cursor: var(--cursor-camera);
+  }
 }
 
 #bandeau-popcorn {
   position: sticky;
-  position: -webkit-sticky;
-  top: 0px;
-  width: 100vw;
+  top: 0;
+  width: 100%;
   height: 147px;
   background-image: url(../images/bandeau-popcorn.webp);
-  z-index: 2;
+  background-repeat: repeat-x;
+  background-position: center;
+  z-index: var(--z-bandeau);
 }
 
-#popcorn svg {
-  margin-top: 15%;
-  width: 25%;
+.poster-trail {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
-#Popcorns_Box_:hover {
-  cursor: url("../images/cursor-fill.png"), auto;
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: clamp(90px, 10vw, 150px);
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -50%) scale(0.75) rotate(var(--tilt, 0deg));
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1),
+    visibility 0.45s;
+  will-change: transform, opacity;
 }
 
-#popcorn-box:hover .image[data-status="active"] {
-  transition: ease-in 0.3s;
-  display: none !important;
+.image[data-status="active"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1) rotate(var(--tilt, 0deg));
 }
 
-#button-reserver:hover {
-  cursor: url("../images/hand-pointing-fill.png"), auto;
+#popcorn-box {
+  position: relative;
+  width: clamp(240px, 26vw, 420px);
+  height: auto;
+  margin: clamp(2rem, 6vw, 5rem) auto 0;
+  z-index: var(--z-popcorn-box);
 }
 
 #button-reserver .cls-8 {
   fill: var(--white);
   stroke: var(--red);
+  transition: fill 0.3s, stroke 0.3s;
 }
 
 #button-reserver text {
   fill: var(--red);
+  font-family: var(--main-font);
+  transition: fill 0.3s;
 }
 
 #button-reserver:hover .cls-8 {
-  transition: all 0.3s;
   fill: var(--red);
   stroke: var(--red);
 }
 
 #button-reserver:hover text {
-  transition: all 0.3s;
   fill: var(--white);
 }
 
-#button-reserver text {
-  font-family: var(--main-font);
-}
+/* --- Footer --- */
+/* The photo is stretched to the section's own aspect ratio (which matches the
+   file's), so the white screen below can be pinned onto the screen of the
+   photo in plain percentages. One set of --screen-* values per background. */
+.site-footer {
+  --screen-left: 22.45%;
+  --screen-top: 23.24%;
+  --screen-right: 21.98%;
+  --screen-bottom: 35.37%;
 
-#cinema {
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  aspect-ratio: 1920 / 1080;
+  background-color: #050505;
   background-image: url(../images/background-cinema.webp);
-  z-index: 3;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  color: var(--white);
+  text-align: center;
+  isolation: isolate;
 }
 
-#cinema div {
+/* Keeps the links and credits legible over the seats. */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 50% 0 0 0;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+  z-index: -1;
+}
+
+/* Sits just above the screen, overlapping its top edge slightly. */
+.footer-logo {
+  position: absolute;
+  left: 50%;
+  top: var(--screen-top);
+  width: min(350px, 40%);
+  height: auto;
+  transform: translate(-50%, -85%);
+}
+
+/* The white screen itself: no frame, it simply covers the one in the photo. */
+.footer-screen {
+  position: absolute;
+  left: var(--screen-left);
+  top: var(--screen-top);
+  right: var(--screen-right);
+  bottom: var(--screen-bottom);
+  display: grid;
+  place-items: center;
+  background: #f7f7f5;
+  overflow: hidden;
+}
+
+.footer-screen__text {
+  position: relative;
+  z-index: 1;
+  color: var(--black);
+  font-size: clamp(1.1rem, 2.4vw, 2.25rem);
+  font-weight: 700;
+}
+
+/* Waves in from the bottom edge of the screen on hover. */
+.footer-screen lottie-player {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 82%;
+  opacity: 0;
+  transform: translateY(16%);
+  transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+.footer-screen:hover lottie-player,
+.footer-screen:focus-within lottie-player {
+  opacity: 1;
+  transform: none;
+}
+
+/* No hover to give: just show it. */
+@media (hover: none) {
+  .footer-screen lottie-player {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.footer-bottom {
+  position: absolute;
+  inset: auto 0 0 0;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: clamp(0.5rem, 1.5vw, 1rem);
+  padding: 0 var(--gutter) clamp(1.25rem, 4vw, 2.5rem);
 }
 
-#cinema img {
-  width: fit-content;
-  margin: 0 auto;
+/* Phones get the portrait crop: the 16/9 photo would leave the screen too
+   small to read, while the portrait one would make the footer far too tall
+   on a tablet. */
+@media (max-width: 767px) {
+  .site-footer {
+    --screen-left: 6.94%;
+    --screen-top: 27.99%;
+    --screen-right: 6.94%;
+    --screen-bottom: 44.72%;
+
+    aspect-ratio: 1080 / 1440;
+    background-image: url(../images/background-cinema-sm.webp);
+  }
+
+  .footer-logo {
+    width: min(350px, 52%);
+  }
 }
 
-#player-event {
-  opacity: 0.5;
-  height: 451px;
-  margin-top: 4.85%;
-}
-
-#player-event:before {
-  padding-top: 10%;
-  content: "À bientôt !";
-  color: var(--black);
-  font-size: 20px;
-  font-family: "Agdasima", sans-serif;
-  font-weight: 600;
-  margin: 0 auto;
-}
-
-#cinema lottie-player {
-  margin: -5.6% auto 0 auto;
-}
-
-#cinema ul {
-  margin: 5% 8% 2rem 8%;
+.footer-links ul {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: clamp(1rem, 4vw, 3rem);
 }
 
-#cinema ul li {
-  margin: 2rem 2rem 0 0;
-}
-
-#cinema ul li a {
-  text-decoration: none;
+.footer-links a {
   color: var(--white);
   text-transform: uppercase;
   font-family: var(--main-font);
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
-#cinema p {
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+
+.footer-credits {
   color: var(--white);
-  font-family: "Agdasima", sans-serif;
-  font-weight: 600;
-  text-align: center;
+  font-weight: 700;
   text-transform: capitalize;
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
 }
 
-/* ------------------------------------------------ 
+/* ------------------------------------------------
 
                     RESPONSIVE
 
 ---------------------------------------------------*/
 
+/* The polaroid collage needs real room: below this the hero drops to a single
+   centred column rather than leaving half the row empty. */
+@media (max-width: 1199px) {
+  #accueil {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+  }
+
+  .card {
+    max-width: 520px;
+  }
+
+  .pictures {
+    display: none;
+  }
+}
+
+/* --- Tablet and below: one column everywhere --- */
+@media (max-width: 1023px) {
+  :root {
+    --header-h: 72px;
+  }
+
+  .site-header nav {
+    padding: 0 1rem;
+  }
+
+  .nav__icon {
+    display: block;
+  }
+
+  .site-header nav ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 2rem 1rem 3rem;
+    background: #141414;
+    height: calc(100dvh - var(--header-h));
+    overflow-y: auto;
+    /* collapsed by default; navbar.js flips the attribute on the header */
+    display: none;
+  }
+
+  .site-header[data-nav-open="true"] nav ul {
+    display: flex;
+  }
+
+  /* stop the page from scrolling behind the open menu */
+  body:has(.site-header[data-nav-open="true"]) {
+    overflow: hidden;
+  }
+
+  .site-header nav ul li + li {
+    margin-left: 0;
+  }
+
+  .site-header nav ul li a {
+    color: var(--white);
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.25rem;
+  }
+
+  .site-header nav ul li a:hover,
+  .site-header nav ul li a:focus-visible {
+    color: var(--black);
+    background: var(--white);
+  }
+
+  .navbar-hover {
+    display: none;
+  }
+
+  .loader,
+  .overlay {
+    display: none;
+  }
+
+  #programme {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #programme .left {
+    border-right: 0;
+    padding-right: 0;
+  }
+
+  #programme h2,
+  .separator {
+    text-align: center;
+  }
+
+  .separator {
+    margin-inline: auto;
+  }
+
+  .right {
+    position: static;
+    margin-top: clamp(3rem, 8vw, 5rem);
+  }
+
+  .card-info {
+    width: clamp(110px, 28%, 150px);
+  }
+
+}
+
 /* --- Smartphone --- */
-@media only screen and (max-width: 767px) {
-   html, body {overflow-x: hidden !important;}.image[data-status="active"] {display: none !important;}header {position: fixed;z-index: 3;}header nav img {margin: 0 auto 0 0.75rem;width: 40% !important;}header nav ul {-webkit-flex-direction: column;flex-direction: column;-webkit-justify-content: center;justify-content: center;background: rgba(0, 0, 0, 0.8);position: absolute;top: 80px;left: 0px;width: 100%;z-index: 980;padding-top: 20vh;}header nav ul li {padding: 10px;text-align: center;margin-left: 0;}header nav ul li a {display: block;background: transparent;color: var(--white);margin: 0px;padding: 20px;}.navbar-hover {display: none;}header nav ul li a:hover {color: var(--black);background: var(--white);}.nav__icon, .nav__icon span {display: inline-block;transition: all 0.4s;box-sizing: border-box;z-index: 999;}.loader, .overlay {display: none;}#accueil {display: flex;padding-top: 10%;margin: 0% 8% 0 8%;margin-bottom: 10%;height: 100vh;margin-bottom: 50%;}.card {border: 2px solid var(--black);border-radius: 5px;width: 500px;height: fit-content;margin-top: 20vh;}.card div img {height: 150px;}.card-header div h1 span {font-size: 17px;}.pictures {display: none;}#thumb {display: none;}.bandeau {background-color: var(--white);display: flex;overflow: hidden;width: 100%;position: absolute;top: 120%;transform: translateY(-50%);}.bandeau:hover {cursor: none;}.txt {white-space: nowrap;font-size: 35px;padding: 45px 0;animation: scrollTxt 25s linear infinite;}#programme {margin: 80% 8% -50vh 8%;display: flex;flex-direction: column;flex-wrap: wrap;justify-content: space-between;}#programme .left {height: fit-content;border: none;padding-right: 0;text-align: left;}#programme .left > div {margin: 15% 0 35% 0;}#programme h2 {font-family: var(--main-font);color: var(--black);text-transform: uppercase;text-align: center;margin-bottom: 2rem;}.separator {display: none;}.card-film {display: flex;flex-direction: column;margin-bottom: 2rem;border: 1px solid var(--black);border-radius: 5px;padding-top: 2rem;}.card-film img {margin: 0 auto 2rem auto;width: 35vw;height: auto;padding-bottom: 2rem;border-bottom: 1px solid var(--black);}.card-film .header-film {display: flex;flex-direction: column;justify-content: space-between;width: fit-content;}.header-film select {margin-left: 0;margin-top: 1rem;padding: 5px 0rem 0 0;width: 125px;border: none;border-bottom: 2px solid var(--red);color: var(--black);background-color: inherit;text-transform: uppercase;font-family: "Agdasima", sans-serif;font-weight: 600;transition: ease-in 0.3s;}.header-film select:hover {letter-spacing: 0;}.description-film {padding-left: 2rem;}.badge-new {padding: 2px 10px;border-radius: 5px;font-family: var(--main-font);font-size: 11px;margin-right: 0.5rem;text-transform: uppercase;}.badge-warning {background-color: var(--black);color: var(--white);padding: 2px 5px;border-radius: 5px;font-family: var(--main-font);font-size: 11px;}.description-film h3 {margin-top: 1rem;font-size: 18px;font-family: var(--main-font);font-weight: 300;color: var(--black);text-transform: capitalize;}.description-film h4 {font-size: 15px;font-family: "Agdasima", sans-serif;color: gray;}.horaires {display: flex;flex-direction: row;flex-wrap: nowrap;margin-top: 3rem;width: 35vh;overflow-y: scroll;}.card-horaire {border: 2px dashed var(--black);border-radius: 10px;background-color: white;padding: 1rem 1.5rem;margin: 0 1rem 1rem 0;}.card-horaire:hover {border: 2px solid var(--black);cursor: url("../images/hand-pointing-fill.png"), auto;}.right {height: 200vh;z-index: 0;}#infos-pratiques {position: relative;width: 80vw;height: 130vh;margin: 0 auto;}#infos-pratiques h2 {font-family: var(--main-font);color: var(--black);text-align: center;}.underline {height: 1px;width: 40%;background-color: var(--black);margin-bottom: 2rem;margin: 0 auto;}.infos {display: flex;flex-direction: row;flex-wrap: wrap;justify-content: center;margin: 2rem 0;}.card-info {border: 1px solid gray;border-radius: 5px;margin: 0.5rem !important;background-color: #ececec;text-align: center;padding: none !important;width: 125px;}.card-info p {padding-top: 1rem;font-weight: 600;color: var(--black);}#popcorn {height: 120vh;}.image {display: none;}#bandeau-popcorn {position: -webkit-sticky;position: -moz-sticky;position: -o-sticky;position: -ms-sticky;position: sticky;top: 0px;width: 100vw;height: 147px;background-image: url(../images/bandeau-popcorn.webp);z-index: 2;}#popcorn svg {margin-bottom: 0;margin-top: 50%;width: 65%;}#Popcorns_Box_ {width: 100vw;}#Popcorns_Box_:hover {cursor: url("../images/cursor-fill.png"), auto;}#button-reserver:hover {cursor: url("../images/hand-pointing-fill.png"), auto;}#button-reserver:hover .cls-8 {transition: all 0.3s;fill: var(--white);stroke: #ff725e;}#button-reserver:hover text {transition: all 0.3s;fill: var(--red);}#cinema {position: relative;width: 100vw;height: 100vh;background-image: url(../images/background-cinema-mobile.webp);background-size: cover;background-repeat: no-repeat;background-position: center;z-index: 3;}#cinema div {display: flex;flex-direction: column;}#cinema img {padding-top: 5rem;width: 70vw;margin: 0 auto;}#player-event {height: 200px;margin: 15vh auto 0 auto;}#player-event:before {content: "À bientôt !";color: var(--black);font-size: 20px;font-family: "Agdasima", sans-serif;font-weight: 600;}#cinema lottie-player {display: none;}#cinema ul {margin: 10% 8% 0 8%;display: flex;flex-direction: row;justify-content: center;}#cinema ul li {margin: 0rem 1rem 1rem 0;}#cinema ul li a {text-decoration: none;color: var(--white);text-transform: uppercase;font-family: var(--main-font);}#cinema p {color: var(--white);font-family: "Agdasima", sans-serif;font-weight: 600;text-align: center;text-transform: capitalize;}
+@media (max-width: 640px) {
+  .card-film {
+    flex-direction: column;
+    align-items: stretch;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.25rem;
+    background: var(--white);
+  }
+
+  .card-film > img {
+    width: min(55%, 200px);
+    margin: 0 auto 1.25rem;
+  }
+
+  .card-film .header-film {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .header-film select {
+    width: 100%;
+    max-width: 180px;
+  }
+
+  .horaires {
+    /* edge-to-edge scrolling strip inside the padded card */
+    margin-inline: -1.25rem;
+    padding-inline: 1.25rem;
+  }
+
+  .accordion-item-body-content .flex {
+    flex-wrap: wrap;
+  }
+
+  .dotted {
+    min-width: 2rem;
+  }
+
+  #bandeau-popcorn {
+    height: 90px;
+    background-size: auto 90px;
+  }
+
+  .footer-screen {
+    aspect-ratio: 4 / 3;
+  }
 }
-/* --- Tablet --- */
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .image[data-status="active"] {display: none !important;}header {position: fixed;z-index: 3;}header nav {padding: 3.5rem 0;}header nav img {margin: 0 auto 0 2rem;width: 25% !important;}header nav ul {-webkit-flex-direction: column;flex-direction: column;-webkit-justify-content: center;justify-content: center;background: rgba(0, 0, 0, 0.8);position: absolute;top: 80px;left: 0px;width: 100%;z-index: 980;padding-top: 20vh;padding-bottom: 40vh;}header nav ul li {padding: 10px;text-align: center;margin-left: 0;}header nav ul li a {display: block;background: transparent;color: var(--white);margin: 0px;padding: 20px;font-size: 25px;}.navbar-hover {display: none;}header nav ul li a:hover {color: var(--black);background: var(--white);}.nav__icon, .nav__icon span {margin-left: -2rem;display: inline-block;transition: all 0.4s;box-sizing: border-box;z-index: 999;}.overlay {background-image: url(../images/bg-loader-vertical.webp) !important;background-position: 40%;}#accueil {display: flex;padding-top: 10%;margin: 0% 8% 0 8%;margin-bottom: 10%;height: 100vh;margin-bottom: 50%;}.card {border: 2px solid var(--black);border-radius: 5px;width: 500px;height: fit-content;margin-top: 20vh;}.card-header {display: flex;justify-content: space-between;}.card-header div {width: 80%;}.divider {width: 20% !important;}.card div img {height: 350px;}.card-header div h1 {font-size: 30px;}.card-header div h1 span {font-size: 25px;}.card-header div h2 {font-size: 25px;}.pictures {display: none;}.bandeau {background-color: var(--white);display: flex;overflow: hidden;width: 100%;position: absolute;top: 120%;transform: translateY(-50%);}.bandeau:hover {cursor: none;}.txt {white-space: nowrap;font-size: 35px;padding: 45px 0;animation: scrollTxt 25s linear infinite;}#programme {margin: 50% 0.5rem -50vh 1rem;display: flex;flex-direction: column;flex-wrap: wrap;justify-content: space-between;}#programme .left {height: fit-content;border: none;padding-right: 0;text-align: left;}.separator {margin: 0 auto 4rem auto;}.underline {margin: 0 auto 4rem auto;}#programme .left > div {margin: 15% 0 35% 0;}#programme h2 {font-family: var(--main-font);color: var(--black);text-transform: uppercase;text-align: center;margin-bottom: 1rem;}.header-film {width: 70vw !important;}.header-film select {width: 150px;}.right {height: 150vh;z-index: 0;}#infos-pratiques {position: relative !important;width: 80vw;height: 100vh;margin: 0 auto;}#infos-pratiques h2 {font-family: var(--main-font);color: var(--black);text-align: center;}.underline {height: 1px;width: 50%;background-color: var(--black);margin-bottom: 2rem;margin: 0 auto;}.card-info p {padding-top: 1rem;font-weight: 600;font-size: 16px;color: var(--black);}.accordion-item-header h3 {font-size: 20px;}#popcorn {height: 140vh;}.image {display: none;}#bandeau-popcorn {position: -webkit-sticky;position: -moz-sticky;position: -o-sticky;position: -ms-sticky;position: sticky;top: 0px;width: 100vw;height: 147px;background-image: url(../images/bandeau-popcorn.webp);z-index: 2;}#popcorn svg {margin-top: 50%;width: 65%;}#Popcorns_Box_ {width: 100vw;}#Popcorns_Box_:hover {cursor: url("../images/cursor-fill.png"), auto;}#button-reserver:hover {cursor: url("../images/hand-pointing-fill.png"), auto;}#cinema {position: relative;width: 100vw;height: 100vh;background-image: url(../images/background-cinema-mobile.webp);background-size: cover;background-repeat: no-repeat;background-position: center;z-index: 3;}#cinema div {display: flex;flex-direction: column;}#cinema img {padding-top: 5rem;width: 40vw;margin: 0 auto;}#player-event {height: 200px;margin: 15vh auto 0 auto;}#player-event:before {content: "À bientôt !";color: var(--black);font-size: 20px;font-family: "Agdasima", sans-serif;font-weight: 600;}#cinema lottie-player {display: none;}#cinema ul {margin: 30% 8% 10% 8%;display: flex;flex-direction: row;justify-content: space-around;}#cinema ul li {margin: 0rem 1rem 1rem 0;}#cinema ul li a {text-decoration: none;color: var(--white);text-transform: uppercase;font-family: var(--main-font);}#cinema p {color: var(--white);font-family: "Agdasima", sans-serif;font-weight: 600;text-align: center;text-transform: capitalize;}
-}
-/* --- Desktop --- */
-@media only screen and (min-width: 1024px) and (max-width: 1920px) {
-}
+
 /* --- Extra Desktop --- */
-@media only screen and (min-width: 1921px) {
-  header {padding: 20px 0;}nav ul li a {font-size: 25px !important;}nav ul li a svg {margin-top: 0.75rem;}.overlay {background-image: url(../images/bg-loader-xl.webp) !important;}.loader img {width: 100vw;}#accueil {margin: 0 15% 0 15%;}.card {width: 700px;}#thumb {display: none;}.pictures img:nth-child(1) {right: 18%;rotate: 5deg;}.pictures img:nth-child(2) {right: 28%;rotate: 5deg;}.left div h2 {font-size: 35px;}.header-film h3 {font-size: 28px;}.header-film h4 {font-size: 22px;}.header-film select {font-size: 20px;}.card-horaire p {font-size: 20px;}.right {height: 130vh;}#infos-pratiques h2 {font-size: 35px;}.card-info p {font-size: 20px;}.accordion-item-header h3 {font-size: 25px;}.accordion-item-body-content {font-size: 20px;}#cinema {background-image: url(../images/background-cinema-xl.webp);}#cinema ul {padding-top: 15%;padding-bottom: 5%;justify-content: space-evenly;}#cinema ul li a {font-size: 25px;}#cinema p {font-size: 20px;}#player-event:before {padding-top: 19.5%;}
+@media (min-width: 1921px) {
+  :root {
+    --gutter: clamp(8rem, 15vw, 20rem);
+  }
+
+  .overlay {
+    background-image: url(../images/bg-loader-xl.webp);
+  }
+
+  #programme {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+  }
+
+  .site-footer {
+    --screen-left: 18.01%;
+    --screen-top: 23.26%;
+    --screen-right: 17.93%;
+    --screen-bottom: 28.47%;
+
+    aspect-ratio: 2560 / 1440;
+    background-image: url(../images/background-cinema-xl-16x9.webp);
+  }
+}
+
+/* --- Motion preferences --- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .pictures img,
+  #thumb {
+    opacity: 1;
+    transform: none;
+  }
+
+  .txt {
+    animation: none;
+  }
 }
